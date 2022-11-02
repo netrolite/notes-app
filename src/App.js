@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { nanoid } from "nanoid"
 
-function App() {
+export default function App() {
+  const [idElems, setIdElems] = useState([])
+  useEffect(() => {
+    for (let i = 0; i < 50; i++) {
+      let id = nanoid(30)
+      setIdElems(prevState => [...prevState, <p key={id}>{id}</p>])
+    }
+  }, [])
+    
+  console.log(idElems)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>Test</h1>
+      {idElems}
+    </main>
   );
 }
-
-export default App;
