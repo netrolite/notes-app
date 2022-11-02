@@ -3,9 +3,12 @@ import { nanoid } from "nanoid"
 
 export default function App() {  
   return (
-    <main>
-      <h1>oisdjflk</h1>
-      
+    <main className="main">
+      <div className="content">
+        <div className="box"></div>
+        <div className="box"></div>
+        <div className="box"></div>
+      </div>
     </main>
   );
 }
