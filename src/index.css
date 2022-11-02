@@ -4,3 +4,14 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#div-1 {
+  width: 400px;
+  height: 400px;
+  background-color: green;
+}
+#div-2 {
+  width: 400px;
+  height: 400px;
+  background-color: goldenrod;
+}
