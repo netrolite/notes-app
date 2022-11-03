@@ -1,3 +1,15 @@
+:root {
+  --clr-font-light: #343434;
+  --clr-font-dark: #fff;
+  --clr-accent-light: #edbb00;
+  --clr-accent-dark: #a88429;
+  --clr-secondary: #9a989c;
+  --clr-bg-light: #e5e5e5;
+  --clr-bg-dark: #0f0f0f;
+  --clr-selected-light: #d7d7d7;
+  --clr-selected-dark: #3d3d3d;
+}
+
 *,
 *::before,
 *::after {
@@ -5,4 +17,31 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar {
+  color: var(--clr-font-light);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-note {
+  margin-left: 5px;
+  background-color: var(--clr-accent-light);
+  padding: 5px 10px;
+}
+
+.add-note.dark {
+  background-color: var(--clr-accent-dark);
+  color: var(--clr-font-dark);
+}
+
+@media all and (min-width: 550px) {
+  .add-note::before {
+    content: "Add new note"
+  }
 }
