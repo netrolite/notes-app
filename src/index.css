@@ -21,18 +21,30 @@
 
 .sidebar {
   color: var(--clr-font-light);
+  max-width: 300px;
+  height: 100vh;
+  padding: 10px; 
+  border-right: 1px solid var(--clr-secondary);
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .add-note {
-  margin-left: 5px;
+  color: var(--clr-font-light);
   background-color: var(--clr-accent-light);
-  padding: 5px 10px;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .add-note.dark {
@@ -40,8 +52,12 @@
   color: var(--clr-font-dark);
 }
 
+.note {
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+}
+
 @media all and (min-width: 550px) {
-  .add-note::before {
-    content: "Add new note"
-  }
+  
 }
