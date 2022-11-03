@@ -1,38 +1,8 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.main {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content {
-  display: flex;
-  padding: 5px;
-  width: 80vw;
-  height: 80vh;
-  border: 1px solid black;
-}
-
-.box {
-  flex-grow: 1;
-  background-color: orangered;
-  height: 60px;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px 1px 2px 1px;
-}
-
-.box:first-child {
-  border-left: 2px solid black;
-}
-
-.box:last-child {
-  border-right: 2px solid black;
 }
