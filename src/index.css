@@ -3,6 +3,8 @@
   --clr-font-dark: rgb(255, 255, 255);
   --clr-font-snippet-light: rgb(128, 128, 128);
   --clr-font-snippet-dark: rgb(154, 152, 156);
+  --clr-font-snippet-selected-light: rgb(128, 114, 73);
+  --clr-font-snippet-selected-dark: rgb(211, 198, 162);
   --clr-icons-light: rgb(128, 128, 128);
   --clr-icons-dark: rgb(107, 104, 107);
   --clr-accent-light: rgb(255, 225, 141);
@@ -12,9 +14,10 @@
   --clr-note-divider-light: rgb(230, 230, 230);
   --clr-note-divider-dark: rgb(53, 48, 57);
   --clr-bg-light: rgb(255, 255, 255);
-  --clr-bg-editor-dark: rgb(15, 15, 15);
+  --clr-bg-editor-dark: rgb(30, 30, 30);
   --clr-bg-sidebar-dark: rgb(31, 26, 36);
-  --clr-bg-divider: rgb(0, 0, 0);
+  --clr-bg-divider-dark: rgb(0, 0, 0);
+  --clr-bg-divider-light: rgb(230, 230, 230);
   --box-shadow-divider: 0 0 0 1px rgba(255, 255, 255, .1);
   --clr-selected-light: rgb(215, 215, 215);
   --clr-selected-dark: rgb(61, 61, 61);
@@ -47,13 +50,14 @@ body {
   width: 100%;
   height: 100vh;
   padding: 15px 0; 
-  border-right: 1px solid var(--clr-bg-divider);
+  border-right: 1px solid var(--clr-bg-divider-light);
   display: flex;
   flex-direction: column;
 }
 
 .main.dark .sidebar {
   background-color: var(--clr-bg-sidebar-dark);
+  border-right: 1px solid var(--clr-bg-divider-dark);
 }
 
 .editor {
@@ -94,9 +98,13 @@ body {
 .sidebar-header-divider {
   margin-bottom: 30px;
   border: none;
-  background-color: var(--clr-bg-divider);
+  background-color: var(--clr-bg-divider-light);
   height: 1px;
-  box-shadow: var(--box-shadow-divider);
+  box-shadow: var(--box-shadow-divider-light);
+}
+
+.main.dark .sidebar-header-divider {
+  background-color: var(--clr-bg-divider-dark);
 }
 
 
@@ -170,9 +178,19 @@ body {
   color: var(--clr-font-snippet-light);
 }
 
+.note.selected .note-snippet {
+  color: var(--clr-font-snippet-selected-light);
+}
+
 .main.dark .note-snippet {
   color: var(--clr-font-snippet-light);
 }
+
+.main.dark .note.selected .note-snippet {
+  color: var(--clr-font-snippet-selected-dark);
+}
+
+
 
 @media all and (min-width: 550px) {
   

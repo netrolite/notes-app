@@ -6,7 +6,7 @@ import Editor from "./components/Editor"
 
 export default function App() {  
   return (
-    <main className="main ">
+    <main className="main">
       <Sidebar />
       <Editor />
     </main>
