@@ -53,6 +53,7 @@ body {
   border-right: 1px solid var(--clr-bg-divider-light);
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .main.dark .sidebar {
