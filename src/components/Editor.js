@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 
 export default function Editor() {
     return (
-        <div className="editor">editor</div>
+        <div className="editor">
+            <div className="top-bar">
+                <div className="dark-mode-switch">
+                    <div className="dark-mode-switch-circle"></div>
+                </div>
+            </div>
+        </div>
     )
 }
