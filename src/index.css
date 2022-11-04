@@ -1,18 +1,23 @@
 :root {
-  --clr-font-light: #343434;
-  --clr-font-dark: #fff;
-  --clr-accent-light: #edbb00;
-  --clr-accent-light-dimmed: #d7d7d7;
-  --clr-accent-dark: #a88429;
-  --clr-accent-dark-dimmed: #3d3d3d;
-  --clr-secondary: #353039;
-  --clr-bg-light: #fff;
-  --clr-bg-editor-dark: #0f0f0f;
-  --clr-bg-sidebar-dark: #1f1a24;
-  --clr-bg-divider: #000;
+  --clr-font-light: rgb(50, 50, 50);
+  --clr-font-dark: rgb(255, 255, 255);
+  --clr-font-snippet-light: rgb(128, 128, 128);
+  --clr-font-snippet-dark: rgb(154, 152, 156);
+  --clr-icons-light: rgb(128, 128, 128);
+  --clr-icons-dark: rgb(107, 104, 107);
+  --clr-accent-light: rgb(255, 225, 141);
+  --clr-accent-light-dimmed: rgb(215, 215, 215);
+  --clr-accent-dark: rgb(168, 132, 41);
+  --clr-accent-dark-dimmed: rgb(61, 61, 61);
+  --clr-note-divider-light: rgb(230, 230, 230);
+  --clr-note-divider-dark: rgb(53, 48, 57);
+  --clr-bg-light: rgb(255, 255, 255);
+  --clr-bg-editor-dark: rgb(15, 15, 15);
+  --clr-bg-sidebar-dark: rgb(31, 26, 36);
+  --clr-bg-divider: rgb(0, 0, 0);
   --box-shadow-divider: 0 0 0 1px rgba(255, 255, 255, .1);
-  --clr-selected-light: #d7d7d7;
-  --clr-selected-dark: #3d3d3d;
+  --clr-selected-light: rgb(215, 215, 215);
+  --clr-selected-dark: rgb(61, 61, 61);
 }
 
 *,
@@ -38,7 +43,7 @@ body {
 
 .sidebar {
   background-color: var(--clr-bg-light);
-  max-width: 300px;
+  max-width: 265px;
   width: 100%;
   height: 100vh;
   padding: 15px 0; 
@@ -103,7 +108,6 @@ body {
 
 .note {
   width: 100%;
-  height: 60px; 
   border-radius: 5px;
   padding-left: 25px;
   padding-right: 12px;
@@ -130,8 +134,11 @@ body {
   height: 100%;
   padding: 6px 0;
   overflow: hidden;
-  text-overflow: ellipsis;
-  border-bottom: 1px solid var(--clr-secondary);
+  border-bottom: 1px solid var(--clr-note-divider-light);
+}
+
+.main.dark .note-inside {
+  border-bottom: 1px solid var(--clr-note-divider-dark);
 }
 
 .note:last-child .note-inside {
@@ -143,11 +150,29 @@ body {
   border: none;
 }
 
-.note-title {
-  font-weight: 600;
+.note-title, .note-date, .note-snippet {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+.note-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
 
+.note-date {
+  font-size: 0.8rem;
+}
+
+.note-snippet {
+  font-size: 0.8rem;
+  color: var(--clr-font-snippet-light);
+}
+
+.main.dark .note-snippet {
+  color: var(--clr-font-snippet-light);
+}
 
 @media all and (min-width: 550px) {
   

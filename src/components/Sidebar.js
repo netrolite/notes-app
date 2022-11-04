@@ -21,8 +21,10 @@ export default function Sidebar() {
                         <div className="note-title">
                             Title
                         </div>
-                        <span className="note-date">10/20/30</span>
-                        <span className="note-snippet">lorem ipsum lorem lorem</span>
+                        <div className="note-subtitle">
+                            <div className="note-date">12/10/2022 </div>
+                            <div className="note-snippet">lorem</div>
+                        </div>
                     </div>
                 </div>
 
@@ -31,13 +33,21 @@ export default function Sidebar() {
                         <div className="note-title">
                             Title
                         </div>
+                        <div className="note-subtitle">
+                            <div className="note-date">12/10/2022 </div>
+                            <div className="note-snippet">lorem</div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="note selected dimmed">
+                <div className="note selected">
                     <div className="note-inside">
                         <div className="note-title">
-                            Title
+                            Titlesdfasdfasdfsdfsdfa k k k k k 
+                        </div>
+                        <div className="note-subtitle">
+                            <div className="note-date">12/10/2022</div>
+                            <div className="note-snippet">loremsdfsdf dfdf kkkk</div>
                         </div>
                     </div>
                 </div>
@@ -46,6 +56,10 @@ export default function Sidebar() {
                     <div className="note-inside">
                         <div className="note-title">
                             Title
+                        </div>
+                        <div className="note-subtitle">
+                            <div className="note-date">12/10/2022 </div>
+                            <div className="note-snippet">lorem</div>
                         </div>
                     </div>
                 </div>
