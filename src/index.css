@@ -27,10 +27,14 @@ body {
 
 .main {
   display: flex;
+  color: var(--clr-font-light);
+}
+
+.main.dark {
+  color: var(--clr-font-dark);
 }
 
 .sidebar {
-  color: var(--clr-font-light);
   background-color: var(--clr-bg-light);
   max-width: 300px;
   width: 100%;
@@ -46,7 +50,6 @@ body {
 }
 
 .editor {
-  color: var(--clr-font-light);
   width: 100%;
   height: 100vh;
   background-color: green;
@@ -76,6 +79,11 @@ body {
   width: 100%;
 }
 
+.main.dark .add-note {
+  color: var(--clr-font-dark);
+  background-color: var(--clr-accent-dark);
+}
+
 .sidebar-header-divider {
   margin-bottom: 30px;
   border: none;
@@ -84,10 +92,6 @@ body {
   box-shadow: var(--box-shadow-divider);
 }
 
-.main.dark .add-note {
-  background-color: var(--clr-accent-dark);
-  color: var(--clr-font-dark);
-}
 
 .sidebar-notes-list {
   display: flex;
@@ -126,13 +130,9 @@ body {
 }
 
 .note-title {
-  color: var(--clr-font-light);
   font-weight: 600;
 }
 
-.main.dark .note-title {
-  color: var(--clr-font-dark);
-}
 
 
 @media all and (min-width: 550px) {

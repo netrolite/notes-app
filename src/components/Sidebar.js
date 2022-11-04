@@ -21,6 +21,8 @@ export default function Sidebar() {
                         <div className="note-title">
                             Title
                         </div>
+                        <span className="note-date">10/20/30</span>
+                        <span className="note-snippet">lorem ipsum lorem lorem</span>
                     </div>
                 </div>
 
