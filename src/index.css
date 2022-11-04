@@ -109,7 +109,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: 30px 10px 10px 10px;
+  padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
   border-right: 1px solid var(--clr-bg-sidebar-divider-light);
 }
@@ -183,22 +183,19 @@ body {
   color: var(--clr-font-snippet-light);
 }
 
+.main.dark .note-snippet {
+  color: var(--clr-font-snippet-light);
+}
+
 .note.selected .note-snippet {
   color: var(--clr-font-snippet-selected-light);
 }
 
-.main.dark .note-snippet {
-  color: var(--clr-font-snippet-light);
-}
 
 .main.dark .note.selected .note-snippet {
   color: var(--clr-font-snippet-selected-dark);
 }
 
-/* .sidebar, .main.dark .sidebar,
-.add-note, .main.dark .add-note,
-.sidebar-header-divider, main.dark .sidebar-header-divider,
-.note.selected, main.dark .note-selected */
 
 /* EDITOR */
 
@@ -213,6 +210,9 @@ body {
 }
 
 .top-bar {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
   width: 100%;
   height: 72px;
   background-color: var(--clr-bg-topbar-light);
@@ -222,6 +222,35 @@ body {
 .main.dark .top-bar {
   background-color: var(--clr-bg-topbar-dark);
   border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.dark-mode-switch {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 2px;
+  border: 1px solid var(--clr-icons-light);
+  border-radius: 30px;
+  width: 44px;
+  height: 26px;
+}
+
+.main.dark .dark-mode-switch {
+  justify-content: flex-end;
+}
+
+.dark-mode-switch-circle {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--clr-icons-light);
+  border-radius: 30px;
 }
 
 @media all and (min-width: 550px) {
