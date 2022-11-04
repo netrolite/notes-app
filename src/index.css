@@ -2,7 +2,9 @@
   --clr-font-light: #343434;
   --clr-font-dark: #fff;
   --clr-accent-light: #edbb00;
+  --clr-accent-light-dimmed: #d7d7d7;
   --clr-accent-dark: #a88429;
+  --clr-accent-dark-dimmed: #3d3d3d;
   --clr-secondary: #353039;
   --clr-bg-light: #fff;
   --clr-bg-editor-dark: #0f0f0f;
@@ -113,6 +115,14 @@ body {
 
 .main.dark .note.selected {
   background-color: var(--clr-accent-dark);
+}
+
+.note.dimmed {
+  background-color: var(--clr-accent-light-dimmed);
+}
+
+.main.dark .note.dimmed {
+  background-color: var(--clr-accent-dark-dimmed);
 }
 
 .note-inside {

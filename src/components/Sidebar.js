@@ -34,7 +34,7 @@ export default function Sidebar() {
                     </div>
                 </div>
 
-                <div className="note selected">
+                <div className="note selected dimmed">
                     <div className="note-inside">
                         <div className="note-title">
                             Title
