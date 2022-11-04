@@ -13,7 +13,6 @@ export default function Sidebar() {
             <div className="sidebar-header">   
                 <button type="button" className="add-note">Create a note</button>
             </div>
-            <hr className="sidebar-header-divider"></hr>
             <div className="sidebar-notes-list">
 
                 <div className="note">

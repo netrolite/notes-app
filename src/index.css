@@ -8,7 +8,7 @@
   --clr-font-snippet-selected-dark: rgb(224, 209, 171);
   --clr-icons-light: rgb(128, 128, 128);
   --clr-icons-dark: rgb(107, 104, 107);
-  --clr-accent-light: rgb(255, 225, 141);
+  --clr-accent-light: rgb(255, 215, 105);
   --clr-accent-light-dimmed: rgb(215, 215, 215);
   --clr-accent-dark: rgb(168, 132, 41);
   --clr-accent-dark-dimmed: rgb(61, 61, 61);
@@ -19,10 +19,14 @@
   --clr-scrollbar-dark: rgb(98, 94, 102);
   --clr-scrollbar-hover-dark: rgb(151, 148, 153);
   --clr-bg-light: rgb(255, 255, 255);
+  --clr-bg-topbar-light: rgb(243, 240, 246);
+  --clr-bg-topbar-dark: rgb(54, 51, 56);
   --clr-bg-editor-dark: rgb(30, 30, 30);
   --clr-bg-sidebar-dark: rgb(31, 26, 36);
-  --clr-bg-divider-dark: rgb(0, 0, 0);
-  --clr-bg-divider-light: rgb(230, 230, 230);
+  --clr-bg-sidebar-divider-light: rgb(230, 230, 230);
+  --clr-bg-sidebar-divider-dark: rgb(0, 0, 1);
+  --clr-bg-topbar-divider-light: rgb(217, 217, 217);
+  --clr-bg-topbar-divider-dark: rgb(0, 0, 1);
   --clr-selected-light: rgb(215, 215, 215);
   --clr-selected-dark: rgb(61, 61, 61);
 }
@@ -56,30 +60,32 @@ body {
   max-width: 265px;
   width: 100%;
   height: 100vh;
-  padding: 15px 0; 
-  border-right: 1px solid var(--clr-bg-divider-light);
   display: flex;
   flex-direction: column;
   overflow: auto;
   scrollbar-color: var(--clr-scrollbar-light);
 }
 
-.main.dark .sidebar {
-  background-color: var(--clr-bg-sidebar-dark);
-  border-right: 1px solid var(--clr-bg-divider-dark);
-}
-
 .sidebar-header {
+  box-sizing: content-box;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
-  padding: 0 10px;
+  background-color: var(--clr-bg-topbar-light);
+  padding: 15px 10px 15px 10px;
+  border-right: 1px solid var(--clr-bg-topbar-divider-light);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
+}
+
+.main.dark .sidebar-header {
+  background-color: var(--clr-bg-topbar-dark);
+  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
 }
 
 .add-note {
   font-family: inherit;
-  font-weight: 400;
+  font-weight: 400; 
   font-size: 1.1rem;
   color: var(--clr-font-light);
   background-color: var(--clr-accent-light);
@@ -94,14 +100,6 @@ body {
   background-color: var(--clr-accent-dark);
 }
 
-.sidebar-header-divider {
-  margin-bottom: 30px;
-  border-top: 1px solid var(--clr-bg-divider-light);
-  border-bottom: transparent;
-  border-right: transparent;
-  border-left: transparent;
-}
-
 .main.dark .sidebar-header-divider {
   border-top: 1px solid var(--clr-bg-divider-dark);
 }
@@ -110,7 +108,15 @@ body {
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
-  padding: 0 10px;
+  height: 100%;
+  padding: 30px 10px 10px 10px;
+  background-color: var(--clr-bg-light);
+  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
+}
+
+.main.dark .sidebar-notes-list {
+  background-color: var(--clr-bg-sidebar-dark);
+  border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
 
 .note {
@@ -209,7 +215,13 @@ body {
 .top-bar {
   width: 100%;
   height: 72px;
-  border-bottom: 1px solid black;
+  background-color: var(--clr-bg-topbar-light);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
+}
+
+.main.dark .top-bar {
+  background-color: var(--clr-bg-topbar-dark);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
 }
 
 @media all and (min-width: 550px) {
