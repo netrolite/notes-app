@@ -4,8 +4,8 @@
   --clr-accent-light: #edbb00;
   --clr-accent-dark: #a88429;
   --clr-secondary: #353039;
-  --clr-bg-light: #e5e5e5;
-  --clr-bg-dark: #0f0f0f;
+  --clr-bg-light: #fff;
+  --clr-bg-editor-dark: #0f0f0f;
   --clr-bg-sidebar-dark: #1f1a24;
   --clr-bg-divider: #000;
   --box-shadow-divider: 0 0 0 1px rgba(255, 255, 255, .1);
@@ -52,11 +52,11 @@ body {
 .editor {
   width: 100%;
   height: 100vh;
-  background-color: green;
+  background-color: var(--clr-bg-light);
 }
 
 .main.dark .editor {
-  background-color: var(--clr-bg-dark);
+  background-color: var(--clr-bg-editor-dark);
 }
 
 .sidebar-header {
@@ -108,6 +108,10 @@ body {
 }
 
 .note.selected {
+  background-color: var(--clr-accent-light);
+}
+
+.main.dark .note.selected {
   background-color: var(--clr-accent-dark);
 }
 
