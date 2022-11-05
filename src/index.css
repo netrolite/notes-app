@@ -246,9 +246,9 @@ body {
 .dark-mode-switch-circle {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  left: 2px;
-  transition: left 0.5s ease-in-out;
+  left: 50%;
+  transform: translate(-85%, -50%);
+  transition: 200ms;
   width: 20px;
   height: 20px;
   border: 1px solid var(--clr-icons-light);
@@ -257,9 +257,9 @@ body {
 }
 
 .main.dark .dark-mode-switch-circle {
-  left: auto;
-  right: 2px;
-  transition: left 0.5s ease-in-out;
+  top: 50%;
+  transition: 200ms;
+  transform: translate(-15%, -50%);
   background-color: var(--clr-accent-dark);
 }
 

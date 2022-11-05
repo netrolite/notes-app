@@ -20,6 +20,14 @@ export default function Editor(props) {
                     <div className="dark-mode-label">Dark Mode</div>
                 </div>
             </div>
+
+            <div className="editor">
+                <textarea 
+                    // value={}
+                    rows="50"
+                    cols="200"
+                /> 
+            </div>
         </div>
     )
 }
