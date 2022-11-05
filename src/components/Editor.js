@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-export default function Editor() {
+export default function Editor(props) {
+    
+    console.log(props);
+    function toggleDarkMode() {
+        props.setDarkMode(prevMode => !prevMode);
+    }
+
     return (
         <div className="editor">
-            <div className="top-bar">
-                <div className="dark-mode">
+            <div className="top-bar" role="controls-bar">
+                <div 
+                    className="dark-mode"
+                    onClick={toggleDarkMode}
+                >
                     <div className="dark-mode-switch">
                         <div className="dark-mode-switch-circle"></div>
                     </div>

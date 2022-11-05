@@ -227,30 +227,40 @@ body {
 .dark-mode {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 8px;
 }
 
+.dark-mode:hover {
+  cursor: pointer;
+}
+
 .dark-mode-switch {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: relative;
   padding: 0 2px;
   border: 1px solid var(--clr-icons-light);
   border-radius: 30px;
-  width: 44px;
+  width: 40px;
   height: 26px;
 }
 
-.main.dark .dark-mode-switch {
-  justify-content: flex-end;
-}
-
 .dark-mode-switch-circle {
-  width: 18px;
-  height: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2px;
+  transition: left 0.5s ease-in-out;
+  width: 20px;
+  height: 20px;
   border: 1px solid var(--clr-icons-light);
   border-radius: 30px;
+  background-color: var(--clr-icons-light);
+}
+
+.main.dark .dark-mode-switch-circle {
+  left: auto;
+  right: 2px;
+  transition: left 0.5s ease-in-out;
+  background-color: var(--clr-accent-dark);
 }
 
 @media all and (min-width: 550px) {

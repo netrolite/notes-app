@@ -5,10 +5,14 @@ import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 
 export default function App() {  
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <main className="main dark">
-      <Sidebar />
-      <Editor />
+    <main className={"main" + (darkMode ? " dark" : "")}>
+      <Sidebar/>
+      <Editor 
+        setDarkMode={setDarkMode}
+      />
     </main>
   );
 }
