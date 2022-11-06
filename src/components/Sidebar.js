@@ -3,6 +3,14 @@ import "../index.css"
 
 export default function Sidebar() {
     // find a way to determine if a note is above the selected note
+    const [notes, setNotes] = useState(
+        JSON.parse(localStorage.getItem("notes")) || []
+    )
+
+
+    function createNote() {
+        console.log(notes)
+    }
     
     function selectNote() {
 
@@ -50,92 +58,6 @@ export default function Sidebar() {
                         </div>
                     </div>
                 </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Titlesdfasdfasdfsdfsdfa k k k k k 
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022</div>
-                            <div className="note-snippet">loremsdfsdf dfdf kkkk</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="note">
-                    <div className="note-inside">
-                        <div className="note-title">
-                            Title
-                        </div>
-                        <div className="note-subtitle">
-                            <div className="note-date">12/10/2022 </div>
-                            <div className="note-snippet">lorem</div>
-                        </div>
-                    </div>
-                </div>
-
-                
                 
             </div>
         </aside>

@@ -1,5 +1,4 @@
 :root {
-  color-scheme: dark;
   --clr-font-light: rgb(50, 50, 50);
   --clr-font-dark: rgb(255, 255, 255);
   --clr-font-snippet-light: rgb(128, 128, 128);
@@ -29,6 +28,14 @@
   --clr-bg-topbar-divider-dark: rgb(0, 0, 1);
   --clr-selected-light: rgb(215, 215, 215);
   --clr-selected-dark: rgb(61, 61, 61);
+}
+
+[data-color-scheme="dark"] {
+  color-scheme: dark;
+}
+
+[data-color-scheme="light"] {
+  color-scheme: light;
 }
 
 *,
@@ -200,14 +207,26 @@ body {
 /* EDITOR */
 
 .editor {
+  max-width: 100%;
   width: 100%;
   height: 100vh;
   background-color: var(--clr-bg-light);
 }
 
-.main.dark .editor {
+.editor-textarea {
+  max-width: 100%;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--clr-bg-light);
+  resize: none;
+}
+
+.main.dark .editor,
+.main.dark .editor-textarea {
   background-color: var(--clr-bg-editor-dark);
 }
+
+/* TOPBAR */
 
 .top-bar {
   display: flex;
