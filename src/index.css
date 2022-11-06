@@ -102,6 +102,10 @@ body {
   width: 100%;
 }
 
+.add-note:hover {
+  cursor: pointer;
+}
+
 .main.dark .add-note {
   color: var(--clr-font-dark);
   background-color: var(--clr-accent-dark);

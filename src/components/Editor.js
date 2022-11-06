@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 export default function Editor(props) {
     
-    console.log(props);
     function toggleDarkMode() {
         props.setDarkMode(prevMode => !prevMode);
         // saving chosen mode into localStorage
@@ -12,7 +11,7 @@ export default function Editor(props) {
         // removing scrollbar
         document.documentElement.style.overflow = "hidden";
         // triggering reflow so that overflow style (line above) is applied
-        let varToTriggerReflow = document.body.offsetHeight;
+        let TriggerReflow = document.body.offsetHeight;
         // changing theme
         document.documentElement.setAttribute(
             "data-color-scheme",
