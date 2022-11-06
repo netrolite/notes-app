@@ -61,7 +61,9 @@ export default function Sidebar() {
 
                 {
                     notesElements.length === 0 ?
-                    "no notes" :
+                    <div className="no-notes">
+                        You have no notes
+                    </div> :
                     notesElements
                 }
                 
