@@ -8,10 +8,21 @@ export default function Sidebar() {
         JSON.parse(localStorage.getItem("notes")) || []
     )
 
+    function timeElapsed(date) {
+        const seconds = (new Date().getTime() / 1000) - (date / 1000);
+        // check all available date formats
+        console.log(date.getFullYear())
+    }
+
+    let past = new Date();
+    setTimeout(() => {
+        timeElapsed(past);
+    }, 1000)
+
     function createNote() {
         const prevNotes = JSON.parse(localStorage.getItem("notes")) || "";
         let currentDate = new Date();
-        currentDate = currentDate.toString();
+        currentDate = currentDate.getTime() / 1000;
         console.log(currentDate);
         const newNote = {
             id: nanoid(12),
@@ -54,7 +65,6 @@ export default function Sidebar() {
             </div>
         ) 
     });
-    console.log(notesElements, "notesElements");
     
     return (
         <aside className="sidebar">
