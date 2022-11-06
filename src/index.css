@@ -121,6 +121,8 @@ body {
   align-items: center;
   width: 100%;
   height: 100%;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar-notes-list {
@@ -220,7 +222,7 @@ body {
 .editor {
   max-width: 100%;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 74px);
   background-color: var(--clr-bg-light);
 }
 

@@ -7,15 +7,18 @@ export default function Sidebar() {
     const [notes, setNotes] = useState(
         JSON.parse(localStorage.getItem("notes")) || []
     )
-    console.log(notes, "notes");
 
     function createNote() {
         const prevNotes = JSON.parse(localStorage.getItem("notes")) || "";
+        let currentDate = new Date();
+        currentDate = currentDate.toString();
+        console.log(currentDate);
         const newNote = {
             id: nanoid(12),
             title: "New Note",
             textSnippet: "No additional text",
-            text: ""
+            text: "",
+            date: currentDate
         };
         setNotes(prevState => [...prevState, newNote])
         localStorage.setItem(
@@ -26,19 +29,26 @@ export default function Sidebar() {
         )
     }
 
+    function selectNote() {
+        console.log("selected");
+    }
+
     const notesElements = notes.map((item, index) => {
         return (
             <div
                 className="note"
+                onClick={selectNote}
                 key={index}
             >
                 <div className="note-inside">
                     <div className="note-title">
-                        Title
+                        {item.title}
                     </div>
                     <div className="note-subtitle">
-                        <div className="note-date">12/10/2022 </div>
-                        <div className="note-snippet">lorem</div>
+                        <div className="note-date">{item.date}</div>
+                        <div className="note-snippet">
+                            {item.textSnippet ? item.textSnippet : "No Additional Text"}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,11 +70,11 @@ export default function Sidebar() {
             <div className="sidebar-notes-list">
 
                 {
-                    notesElements.length === 0 ?
+                    notesElements.length > 0 ?
+                    notesElements :
                     <div className="no-notes">
-                        You have no notes
-                    </div> :
-                    notesElements
+                        No Notes
+                    </div>
                 }
                 
             </div>
