@@ -8,16 +8,23 @@ export default function Sidebar() {
         JSON.parse(localStorage.getItem("notes")) || []
     )
 
+    /*
+    cosnt time = {
+        weekDay = "Monday"
+        ...
+    }
+    */
     function timeElapsed(date) {
         const seconds = (new Date().getTime() / 1000) - (date / 1000);
         // check all available date formats
         console.log(date.getFullYear())
     }
 
-    let past = new Date();
-    setTimeout(() => {
-        timeElapsed(past);
-    }, 1000)
+    const weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let pastDate = new Date();
+    console.log(pastDate.getDate());
+
+    
 
     function createNote() {
         const prevNotes = JSON.parse(localStorage.getItem("notes")) || "";
