@@ -249,8 +249,9 @@ body {
   font-family: inherit;
   max-width: 100%;
   width: 100%;
-  border: none;
   height: calc(100vh - 72px);
+  outline: none;
+  border: none;
   resize: none;
 }
 
