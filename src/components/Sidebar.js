@@ -31,7 +31,7 @@ export default function Sidebar() {
         )
     }
 
-    function selectNote() {
+    function selectNote(ev, id) {
         console.log("selected");
     }
 
@@ -39,7 +39,7 @@ export default function Sidebar() {
         return (
             <div
                 className="note"
-                onClick={selectNote}
+                onClick={ev => {selectNote(ev, item.id)}}
                 key={index}
             >
                 <div className="note-inside">

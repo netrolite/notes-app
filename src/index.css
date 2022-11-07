@@ -5,8 +5,8 @@
   --clr-font-snippet-dark: rgb(154, 152, 156);
   --clr-font-snippet-selected-light: rgb(128, 114, 73);
   --clr-font-snippet-selected-dark: rgb(224, 209, 171);
-  --clr-icons-light: rgb(128, 128, 128);
-  --clr-icons-dark: rgb(107, 104, 107);
+  --clr-icons-light: rgb(107, 107, 107);
+  --clr-icons-dark: rgb(151, 150, 153);
   --clr-accent-light: rgb(255, 215, 105);
   --clr-accent-light-dimmed: rgb(215, 215, 215);
   --clr-accent-dark: rgb(168, 132, 41);
@@ -246,6 +246,7 @@ body {
 }
 
 .editor-textarea {
+  font-size: 1.4rem;
   font-family: inherit;
   max-width: 100%;
   width: 100%;
@@ -266,6 +267,7 @@ body {
 .top-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 10px;
   width: 100%;
   height: 72px;
@@ -282,10 +284,15 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--clr-icons-light);
 }
 
 .dark-mode:hover {
   cursor: pointer;
+}
+
+.main.dark .dark-mode {
+  color: var(--clr-icons-dark);
 }
 
 .dark-mode-switch {
@@ -315,6 +322,20 @@ body {
   transition: 200ms;
   transform: translate(-15%, -50%);
   background-color: var(--clr-accent-dark);
+}
+
+.topbar-icon { 
+  color: var(--clr-icons-light);
+  height: 22px;
+  width: 22px;
+}
+
+.topbar-icon:hover {
+  cursor: pointer;
+}
+
+.main.dark .topbar-icon {
+  color: var(--clr-icons-dark);
 }
 
 @media all and (min-width: 550px) {
