@@ -1,43 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import dayjs from "dayjs";
 import "../index.css"
 
 export default function Sidebar() {
-    // find a way to determine if a note is above the selected note
     const [notes, setNotes] = useState(
         JSON.parse(localStorage.getItem("notes")) || []
     )
 
-    /*
-    cosnt time = {
-        weekDay = "Monday"
-        ...
-    }
-    */
-    function timeElapsed(date) {
-        const seconds = (new Date().getTime() / 1000) - (date / 1000);
-        // check all available date formats
-        console.log(date.getFullYear())
-    }
-
-    const weekDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-    let pastDate = new Date();
-    console.log(pastDate.getDate());
-
-    
-
     function createNote() {
+        // getting all previously created notes OR an empty string
         const prevNotes = JSON.parse(localStorage.getItem("notes")) || "";
-        let currentDate = new Date();
-        currentDate = currentDate.getTime() / 1000;
-        console.log(currentDate);
+
+        let now = dayjs()
         const newNote = {
             id: nanoid(12),
             title: "New Note",
             textSnippet: "No additional text",
             text: "",
-            date: currentDate
+            date: `${now.date()}`
         };
+
+        // adding to "notes" state && to localStorage
         setNotes(prevState => [...prevState, newNote])
         localStorage.setItem(
             "notes", JSON.stringify([
