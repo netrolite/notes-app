@@ -32,7 +32,19 @@ export default function Sidebar() {
     }
 
     function selectNote(ev, id) {
-        console.log("selected");
+        setNotes(prevState => {
+            const prevSelected = document.querySelectorAll(".selected");
+            if(prevSelected.length > 0) {
+                document.querySelectorAll(".selected").classList.remove("selected");
+                document.querySelectorAll(".above-selected").classList.remove("above-selected");
+            }
+            else {
+                console.log(prevSelected.length);
+            }
+            const clickedElem = prevState.find(item => item.id === id);
+            const clickedElemIndex = prevState.indexOf(clickedElem);
+            return prevState;
+        })
     }
 
     const notesElements = notes.map((item, index) => {

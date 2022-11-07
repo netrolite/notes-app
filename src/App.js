@@ -7,7 +7,7 @@ import Editor from "./components/Editor"
 export default function App() {  
   const [darkMode, setDarkMode] = useState(
       localStorage.getItem("darkMode") || false
-    );
+  );
 
   return (
     <main className={"main" + (darkMode ? " dark" : "")}>
