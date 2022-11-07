@@ -12,45 +12,27 @@ export default function Sidebar() {
         // getting all previously created notes OR an empty string
         const prevNotes = JSON.parse(localStorage.getItem("notes")) || "";
 
-        let now = dayjs()
         const newNote = {
             id: nanoid(12),
             title: "New Note",
             textSnippet: "No additional text",
             text: "",
-            date: `${now.date()}`
+            date: new Date().getSeconds(),
         };
-
-        // adding to "notes" state && to localStorage
-        setNotes(prevState => [...prevState, newNote])
-        localStorage.setItem(
-            "notes", JSON.stringify([
-                ...prevNotes,
-                newNote
-            ])
-        )
+        
     }
 
     function selectNote(ev, id) {
-        setNotes(prevState => {
-            const prevSelected = document.querySelectorAll(".selected");
-            if(prevSelected.length > 0) {
-                document.querySelectorAll(".selected").classList.remove("selected");
-                document.querySelectorAll(".above-selected").classList.remove("above-selected");
-            }
-            else {
-                console.log(prevSelected.length);
-            }
-            const clickedElem = prevState.find(item => item.id === id);
-            const clickedElemIndex = prevState.indexOf(clickedElem);
-            return prevState;
-        })
+        // !!! compare current note id to id passed as an argument
+        console.log("selected");
     }
 
     const notesElements = notes.map((item, index) => {
         return (
             <div
-                className="note"
+                className={
+                    `note${item.isSelected ? " selected" : ""}`
+                }
                 onClick={ev => {selectNote(ev, item.id)}}
                 key={index}
             >
