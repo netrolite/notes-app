@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useState } from "react"
 import Note from "./Note"
 
 export default function NotesList(props) {
+    const [currSelectedNoteID, setCurrSelectedNoteID] = useState(
+        (props.notes[0] && props.notes[0].id) || ""
+    )
 
-    const notesElements = props.data.map(note => {
+    const notesElements = props.notes.map(note => {
+
         return (
             <Note 
                 currSelectedNoteID={props.currSelectedNoteID}

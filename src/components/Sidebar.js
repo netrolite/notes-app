@@ -6,9 +6,6 @@ export default function Sidebar() {
     const [notes, setNotes] = useState(
         JSON.parse(localStorage.getItem("notes")) || []
     )
-    const [currSelectedNoteID, setCurrSelectedNoteID] = useState(
-       (notes[0] && notes[0].id) || ""
-    )
 
     function createNote() {
         const newNote = {
@@ -40,9 +37,7 @@ export default function Sidebar() {
                 </button>
             </div>
             <NotesList 
-                data={notes}
-                currSelectedNoteID={currSelectedNoteID}
-                setCurrSelectedNote={setCurrSelectedNoteID}
+                notes={notes}
             />
         </aside>
     )
