@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Note(props) {
     const title = props.text.split(/\n/)[0] || "New Note"
-    console.log(title);
+    const textSnippet = props.text.split(/\n/)[1] || "No Additional Text"
 
     return (
         <div
@@ -20,7 +20,7 @@ export default function Note(props) {
                 <div className="note-subtitle">
                     <div className="note-date">{props.date}</div>
                     <div className="note-snippet">
-                        {props.textSnippet ? props.textSnippet : "No Additional Text"}
+                        {textSnippet}
                     </div>
                 </div>
             </div>

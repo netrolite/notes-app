@@ -1,14 +1,13 @@
 import React from "react"
 import Note from "./Note"
 
-export default function NotesList({data, currSelectedNoteID, setCurrSelectedNoteID}) {
-    console.log(data);
+export default function NotesList(props) {
 
-    const notesElements = data.map(note => {
+    const notesElements = props.data.map(note => {
         return (
             <Note 
-                currSelectedNoteID={currSelectedNoteID}
-                setCurrSelectedNoteID={setCurrSelectedNoteID}
+                currSelectedNoteID={props.currSelectedNoteID}
+                setCurrSelectedNoteID={props.setCurrSelectedNoteID}
                 text={note.text}
                 id={note.id}
                 key={note.id}
