@@ -18,25 +18,25 @@ export default function Note(props) {
         const now = new Date().getTime();
         // amount of seconds since "pastDate" till now
         const seconds = (now - pastDate) / 1000;
-
+        
         // units of time elapsed (years || months || weeks || ...)
-        const years = (seconds / 31536000).toFixed(1);
-        if(years > 0) return years + " years";
+        const years = Math.floor(seconds / 31536000);
+        if(years > 0) return years + " year" + (years > 1 ? "s" : "");
 
         const months = Math.floor(seconds / 2628288);
-        if(months > 0) return months + " months";
+        if(months > 0) return months + " month" + (months > 1 ? "s" : "");
 
         const weeks = Math.floor(seconds / 604800);
-        if(weeks > 0) return weeks + " weeks";
+        if(weeks > 0) return weeks + " week" + (weeks > 1 ? "s" : "");
 
         const days = Math.floor(seconds / 86400);
-        if(days > 0) return days + " days";
+        if(days > 0) return days + " day" + (days > 1 ? "s" : "");
 
         const hours = Math.floor(seconds / 3600);
-        if(hours > 0) return hours + " hours";
+        if(hours > 0) return hours + " hour" + (hours > 1 ? "s" : "");
 
         const minutes = Math.floor(seconds / 60);
-        if(minutes > 0) return minutes + " minutes";
+        if(minutes > 0) return minutes + " minute" + (minutes > 1 ? "s" : "");
 
         return "Less than a minute"
     }
