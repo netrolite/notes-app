@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Note(props) {
     const title = props.text.split(/\n/)[0] || "New Note";
     const textSnippet = props.text.split(/\n/)[1] || "No Additional Text";
 
-    const formattedDate = timeElapsed(props.date) + " ago"
+    const [formattedDate, setFormattedDate] = useState(
+        timeElapsed(props.date) + " ago"
+    )
+
+    // update formattedDate every minute
+    setInterval(() => {
+        setFormattedDate(timeElapsed(props.date) + " ago")
+    }, 60000)
 
     function timeElapsed(pastDate) {
         // time right now

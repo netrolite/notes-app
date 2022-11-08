@@ -1,10 +1,10 @@
 :root {
   --clr-font-light: rgb(50, 50, 50);
   --clr-font-dark: rgb(255, 255, 255);
-  --clr-font-snippet-light: rgb(128, 128, 128);
-  --clr-font-snippet-dark: rgb(154, 152, 156);
-  --clr-font-snippet-selected-light: rgb(128, 114, 73);
-  --clr-font-snippet-selected-dark: rgb(224, 209, 171);
+  --clr-note-meta-light: rgb(128, 128, 128);
+  --clr-note-meta-dark: rgb(154, 152, 156);
+  --clr-note-meta-selected-light: rgb(128, 114, 73);
+  --clr-note-meta-selected-dark: rgb(224, 209, 171);
   --clr-icons-light: rgb(107, 107, 107);
   --clr-icons-dark: rgb(151, 150, 153);
   --clr-accent-light: rgb(255, 215, 105);
@@ -212,26 +212,24 @@ body {
   font-size: 0.95rem;
 }
 
-.note-date {
+.note-date, .note-snippet {
   font-size: 0.8rem;
+  color: var(--clr-font-snippet-light)
 }
 
-.note-snippet {
-  font-size: 0.8rem;
-  color: var(--clr-font-snippet-light);
+.note.selected .note-date,
+.note-selected .note-snippet {
+  color: var(--clr-note-meta-selected-light);
 }
 
+.main.dark .note-date,
 .main.dark .note-snippet {
-  color: var(--clr-font-snippet-light);
+  color: var(--clr-note-meta-dark);
 }
 
-.note.selected .note-snippet {
-  color: var(--clr-font-snippet-selected-light);
-}
-
-
+.main.dark .note.selected .note-date,
 .main.dark .note.selected .note-snippet {
-  color: var(--clr-font-snippet-selected-dark);
+  color: var(--clr-note-meta-selected-dark);
 }
 
 
