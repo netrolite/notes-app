@@ -9,9 +9,10 @@ export default function NotesList(props) {
     const notesElements = props.notes.map(note => {
 
         return (
+            // add isSelected, isAboveSelected
             <Note 
-                currSelectedNoteID={props.currSelectedNoteID}
-                setCurrSelectedNoteID={props.setCurrSelectedNoteID}
+                currSelectedNoteID={currSelectedNoteID}
+                setCurrSelectedNoteID={setCurrSelectedNoteID}
                 text={note.text}
                 id={note.id}
                 key={note.id}
