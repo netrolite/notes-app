@@ -4,13 +4,7 @@ export default function Note(props) {
     const title = props.text.split(/\n/)[0] || "New Note";
     const textSnippet = props.text.split(/\n/)[1] || "No Additional Text";
 
-    let formattedDate = "";
-    if(timeElapsed(props.date) === "Just now") {
-        formattedDate = timeElapsed(props.date);
-    }
-    else {
-        formattedDate = timeElapsed(props.date) + " ago";
-    }
+    const formattedDate = timeElapsed(props.date) + " ago"
 
     function timeElapsed(pastDate) {
         // time right now
@@ -18,26 +12,26 @@ export default function Note(props) {
         // amount of seconds since "pastDate" till now
         const seconds = (now - pastDate) / 1000;
 
-        // unites of time elapsed (years || months || weeks || ...)
+        // units of time elapsed (years || months || weeks || ...)
         const years = (seconds / 31536000).toFixed(1);
-        if(years > 0) return years;
+        if(years > 0) return years + " years";
 
         const months = Math.floor(seconds / 2628288);
-        if(months > 0) return months;
+        if(months > 0) return months + " months";
 
         const weeks = Math.floor(seconds / 604800);
-        if(weeks > 0) return weeks;
+        if(weeks > 0) return weeks + " weeks";
 
         const days = Math.floor(seconds / 86400);
-        if(days > 0) return days;
+        if(days > 0) return days + " days";
 
         const hours = Math.floor(seconds / 3600);
-        if(hours > 0) return hours;
+        if(hours > 0) return hours + " hours";
 
         const minutes = Math.floor(seconds / 60);
-        if(minutes > 0) return minutes
+        if(minutes > 0) return minutes + " minutes";
 
-        return "Just Now"
+        return "Less than a minute"
     }
 
     return (
