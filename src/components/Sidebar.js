@@ -12,10 +12,8 @@ export default function Sidebar() {
 
     function createNote() {
         const newNote = {
-            text: `jasd;lfjasdjjjooivemrovimervoemerivimr
-            slfkjsdflkjsdflsfjsldkjfsdjkfssjkdflssdfsdf
-            slfkjsldfjsdflkjsldjfsdfj`,
-            date: new Date().toString(),
+            text: `jasd;lfjasdjjjooivemrovimervoemerivimr`,
+            date: new Date().getTime(),
             id: nanoid()
         }
 

@@ -1,8 +1,16 @@
 import React from "react";
 
 export default function Note(props) {
-    const title = props.text.split(/\n/)[0] || "New Note"
-    const textSnippet = props.text.split(/\n/)[1] || "No Additional Text"
+    const title = props.text.split(/\n/)[0] || "New Note";
+    const textSnippet = props.text.split(/\n/)[1] || "No Additional Text";
+    const formattedDate = timeElapsed(props.date);
+
+    function timeElapsed(pastDate) {
+        const now = new Date().getTime();
+        const seconds = (now - pastDate) / 1000;
+        console.log(seconds);
+        return seconds;
+    }
 
     return (
         <div
@@ -18,7 +26,7 @@ export default function Note(props) {
                     {title}
                 </div>
                 <div className="note-subtitle">
-                    <div className="note-date">{props.date}</div>
+                    <div className="note-date">{formattedDate}</div>
                     <div className="note-snippet">
                         {textSnippet}
                     </div>
