@@ -9,7 +9,7 @@ export default function Sidebar() {
     )
 
     const [currSelected, set currSelected] = useState(
-       notes[0] && notes[0].id || ""
+       (notes[0] && notes[0].id) || ""
     )
 
     function createNote() {
