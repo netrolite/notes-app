@@ -3,8 +3,8 @@ import React from "react";
 export default function Note(props) {
     <div
         className={
-            "note" += props.isSelected ? " selected" : "" 
-            += props.isAboveSelected ? " above-selected" : ""
+            "note" + props.isSelected ? " selected" : "" 
+            + props.isAboveSelected ? " above-selected" : ""
         }
         onClick={ev => {props.selectNote(ev, props.id)}}
         key={props.key}

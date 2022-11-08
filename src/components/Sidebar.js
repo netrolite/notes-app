@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import dayjs from "dayjs";
-import "../index.css"
+import NotesList from "./NotesList";
 
 export default function Sidebar() {
     const [notes, setNotes] = useState(
@@ -12,7 +11,7 @@ export default function Sidebar() {
        (notes[0] && notes[0].id) || ""
     )
 
-        
+    
     
     return (
         <aside className="sidebar">
@@ -20,14 +19,15 @@ export default function Sidebar() {
                 <button 
                     type="button" 
                     className="add-note"
-                    onClick={createNote}
                 >
                     Create a note
                 </button>
             </div>
             <div className="sidebar-notes-list">
 
-                {/* NotesList */}
+                <NotesList 
+                    data={notes}
+                />
                 
             </div>
         </aside>
