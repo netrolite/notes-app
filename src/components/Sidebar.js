@@ -8,9 +8,10 @@ export default function Sidebar() {
         JSON.parse(localStorage.getItem("notes")) || []
     )
 
-    const [currSelected, set currSelected] = useState(
+    const [currSelected, setcurrSelected] = useState(
        (notes[0] && notes[0].id) || ""
     )
+
 
     function createNote() {
         // getting all previously created notes OR an empty string
@@ -68,13 +69,7 @@ export default function Sidebar() {
             </div>
             <div className="sidebar-notes-list">
 
-                {
-                    notesElements.length > 0 ?
-                    notesElements :
-                    <div className="no-notes">
-                        No Notes
-                    </div>
-                }
+                {/* NotesList */}
                 
             </div>
         </aside>
