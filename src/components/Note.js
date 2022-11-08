@@ -20,6 +20,7 @@ export default function Note(props) {
         const seconds = (now - pastDate) / 1000;
         
         // units of time elapsed (years || months || weeks || ...)
+        // if unit of time > 1, then add "s" to the end to make it plural
         const years = Math.floor(seconds / 31536000);
         if(years > 0) return years + " year" + (years > 1 ? "s" : "");
 
