@@ -6,14 +6,16 @@ export default function Sidebar() {
     const [notes, setNotes] = useState(
         JSON.parse(localStorage.getItem("notes")) || []
     )
-    const [currSelected, setCurrSelected] = useState(
+    const [currSelectedNoteID, setCurrSelectedNoteID] = useState(
        (notes[0] && notes[0].id) || ""
     )
 
     function createNote() {
         const newNote = {
-            text: "",
-            date: new Date(),
+            text: `jasd;lfjasdjjjooivemrovimervoemerivimr
+            slfkjsdflkjsdf
+            slfkjsldfjsdflkjsldjfsdfj`,
+            date: new Date().toString(),
             id: nanoid()
         }
 
@@ -39,13 +41,11 @@ export default function Sidebar() {
                     Create a note
                 </button>
             </div>
-            <div className="sidebar-notes-list">
-
-                <NotesList 
-                    data={notes}
-                />
-                
-            </div>
+            <NotesList 
+                data={notes}
+                currSelectedNoteID={currSelectedNoteID}
+                setCurrSelectedNote={setCurrSelectedNoteID}
+            />
         </aside>
     )
 }

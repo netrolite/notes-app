@@ -1,11 +1,25 @@
 import React from "react"
 import Note from "./Note"
 
-export default function NotesList(props) {
-    console.log(props.data[0]);
-    
+export default function NotesList({data, currSelectedNoteID, setCurrSelectedNoteID}) {
+    console.log(data);
+
+    const notesElements = data.map(note => {
+        return (
+            <Note 
+                currSelectedNoteID={currSelectedNoteID}
+                setCurrSelectedNoteID={setCurrSelectedNoteID}
+                text={note.text}
+                id={note.id}
+                key={note.id}
+                date={note.date}
+            />
+        )
+    })
     
     return (
-        <h1>NotesList</h1>
+        <div className="sidebar-notes-list">
+            {notesElements}
+        </div>
     )
 }
