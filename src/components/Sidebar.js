@@ -6,12 +6,26 @@ export default function Sidebar() {
     const [notes, setNotes] = useState(
         JSON.parse(localStorage.getItem("notes")) || []
     )
-
-    const [currSelected, setcurrSelected] = useState(
+    const [currSelected, setCurrSelected] = useState(
        (notes[0] && notes[0].id) || ""
     )
 
-    
+    function createNote() {
+        const newNote = {
+            text: "",
+            date: new Date(),
+            id: nanoid()
+        }
+
+        // adding "newNote" to "notes" state
+        setNotes(prevState => [...prevState, newNote]);
+        // adding "newNote" to localStorage
+        const oldNotesLocalStorage = JSON.parse(localStorage.getItem("notes")) || [];
+        localStorage.setItem(
+            "notes",
+            JSON.stringify([...oldNotesLocalStorage, newNote])
+        );
+    }
     
     return (
         <aside className="sidebar">
@@ -19,6 +33,7 @@ export default function Sidebar() {
                 <button 
                     type="button" 
                     className="add-note"
+                    onClick={createNote}
                 >
                     Create a note
                 </button>
