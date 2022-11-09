@@ -2,23 +2,19 @@ import React, { useState } from "react"
 import Note from "./Note"
 
 export default function NotesList(props) {
-    const [currSelectedNoteID, setCurrSelectedNoteID] = useState(
-        (props.notes[0] && props.notes[0].id) || ""
-    )
-
     function selectNote(ev, id) {
-        setCurrSelectedNoteID(id);
+        props.setCurrSelectedNoteID(id);
     }
 
     const notesElements = props.notes.map((note, index, array) => {
         let isAboveSelected = false;
-        if(array[index + 1] && array[index + 1].id === currSelectedNoteID) {
+        if(array[index + 1] && array[index + 1].id === props.currSelectedNoteID) {
             isAboveSelected = true;
         }
         
         return (
             <Note 
-                currSelectedNoteID={currSelectedNoteID}
+                currSelectedNoteID={props.currSelectedNoteID}
                 selectNote={selectNote}
                 isAboveSelected={isAboveSelected}
                 text={note.text}
