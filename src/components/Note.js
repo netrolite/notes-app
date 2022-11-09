@@ -44,10 +44,11 @@ export default function Note(props) {
         return "Less than a minute"
     }
 
+    console.log(props);
     return (
         <div
             className={
-                "note" + (props.isSelected ? " selected" : "") 
+                "note" + (props.id === props.currSelectedNoteID ? " selected" : "") 
                 + (props.isAboveSelected ? " above-selected" : "")
             }
             onClick={ev => {props.selectNote(ev, props.id)}}

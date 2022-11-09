@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import NotesList from "./NotesList";
 
-export default function Sidebar() {
-    const [notes, setNotes] = useState(
-        JSON.parse(localStorage.getItem("notes")) || []
-    )
-
+export default function Sidebar(props) {
     function createNote() {
         const newNote = {
             text: `jasd;lfjasdjjjooivemrovimervoemerivimr`,
@@ -15,7 +11,7 @@ export default function Sidebar() {
         }
 
         // adding "newNote" to "notes" state
-        setNotes(prevState => [...prevState, newNote]);
+        props.setNotes(prevState => [...prevState, newNote]);
         // adding "newNote" to localStorage
         // "oldNotesLocalStorage" is either parsed "notes" array from localStorage or an empty array
         const oldNotesLocalStorage = JSON.parse(localStorage.getItem("notes")) || [];
@@ -37,7 +33,7 @@ export default function Sidebar() {
                 </button>
             </div>
             <NotesList 
-                notes={notes}
+                notes={props.notes}
             />
         </aside>
     )

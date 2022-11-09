@@ -2,17 +2,22 @@ import React, { useState } from "react"
 import Note from "./Note"
 
 export default function NotesList(props) {
-    const [currSelectedNoteID, setCurrSelectedNoteID] = useState(
+    const [currNoteID, setCurrNoteID] = useState(
         (props.notes[0] && props.notes[0].id) || ""
     )
 
-    const notesElements = props.notes.map(note => {
+    function selectNote(ev, id) {
+        setCurrNoteID(id);
+    }
 
+    const notesElements = props.notes.map((note, index, array) => {
+        let isAboveSelected = false;
+        console.log(index);
+        
         return (
-            // add isSelected, isAboveSelected
             <Note 
-                currSelectedNoteID={currSelectedNoteID}
-                setCurrSelectedNoteID={setCurrSelectedNoteID}
+                currSelectedNoteID={currNoteID}
+                selectNote={selectNote}
                 text={note.text}
                 id={note.id}
                 key={note.id}
