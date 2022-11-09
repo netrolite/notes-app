@@ -44,7 +44,6 @@ export default function Note(props) {
         return "Less than a minute"
     }
 
-    console.log(props);
     return (
         <div
             className={
