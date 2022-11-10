@@ -24,9 +24,9 @@ export default function NotesList(props) {
 
     const notesElements = props.notes.map((note, index, array) => {
         let isAboveSelected = false;
-        console.log(props.currSelectedNote.id);
+        // if the next note exists, and if that note's id matches currSelectedNote.id,
+        // then isAboveSelected = true
         if(array[index + 1] && array[index + 1].id === props.currSelectedNote.id) {
-            console.log("is above selected");
             isAboveSelected = true;
         }
         return (
