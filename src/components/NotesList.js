@@ -20,8 +20,6 @@ export default function NotesList(props) {
         })
     }
 
-    console.log(props.currSelectedNote);
-
     const notesElements = props.notes.map((note, index, array) => {
         let isAboveSelected = false;
         // if the next note exists, and if that note's id matches currSelectedNote.id,
@@ -31,7 +29,7 @@ export default function NotesList(props) {
         }
         return (
             <Note 
-                currSelectedNoteID={props.currSelectedNote.id}
+                currSelectedNote={props.currSelectedNote}
                 selectNote={selectNote}
                 isAboveSelected={isAboveSelected}
                 text={note.text}

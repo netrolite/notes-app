@@ -6,15 +6,19 @@ export default function Editor(props) {
         props.setDarkMode(prevMode => !prevMode);
     }
 
+    // update current note's text
     function updateNote() {
         props.setCurrSelectedNote(prevState => {
             const newText = document.querySelector(".editor-textarea").value;
             return {
-                ...prevState,
-                text: newText
+                text: newText,
+                date: prevState.date,
+                id: prevState.id
             }
         })
     }
+
+    // make text in the editor change when different notes are selected!!!
     
     return (
         <div className="editor">
