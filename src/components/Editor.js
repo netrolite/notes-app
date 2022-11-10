@@ -1,9 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { IoTrashOutline } from "react-icons/io5"
+import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 
-export default function Editor(props) {
+export default function Editor(props) { 
+    console.log(props);
+
     function toggleDarkMode() {
         props.setDarkMode(prevMode => !prevMode);
+    }
+
+    function updateNote() {
+        props.setNotes(prevState => {
+            prevState.forEach(item => {
+                if(item.id === props.currSelectedNoteID) {
+                    item.text = document.querySelector(".editor-textarea").value;
+                }
+            });
+            return prevState;
+        })
     }
     
     return (
@@ -28,7 +41,7 @@ export default function Editor(props) {
             <div className="editor">
                 <textarea 
                     className="editor-textarea"
-                    rows="10"
+                    onChange={updateNote}               
                 /> 
             </div>
         </div>

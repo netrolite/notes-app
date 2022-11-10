@@ -3,7 +3,7 @@ import Note from "./Note"
 
 export default function NotesList(props) {
     function selectNote(ev, id) {
-        props.setCurrSelectedNoteID(id);
+        props.setCurrSelectedNote(id);
     }
 
     const notesElements = props.notes.map((note, index, array) => {
@@ -12,9 +12,10 @@ export default function NotesList(props) {
             isAboveSelected = true;
         }
         
+
         return (
             <Note 
-                currSelectedNoteID={props.currSelectedNoteID}
+                currSelectedNoteID={props.currSelectedNote}
                 selectNote={selectNote}
                 isAboveSelected={isAboveSelected}
                 text={note.text}
