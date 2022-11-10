@@ -10,7 +10,7 @@ export default function App() {
   )
   const [currSelectedNote, setCurrSelectedNote] = useState(
     // if notes[0] exists, set it to notes[0]
-    (notes[0] && notes[0]) || ""
+    notes[0] || ""
   )
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
