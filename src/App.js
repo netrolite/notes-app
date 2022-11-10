@@ -13,11 +13,11 @@ export default function App() {
     (notes[0] && notes[0]) || ""
   )
   const [darkMode, setDarkMode] = useState(
+    // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
-
-  console.log("dakrMode", darkMode);
-  localStorage.setItem("darkMode", darkMode);
+  // save current darkMode to localStorage
+  JSON.stringify(localStorage.setItem("darkMode", darkMode));
 
   return (
     <main className={"main" + (darkMode ? " dark" : "")}>
