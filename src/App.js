@@ -12,6 +12,8 @@ export default function App() {
     // if notes[0] exists, set it to notes[0]
     notes[0] || ""
   )
+  // get rid of "currSelectedNote"
+  // only use "notes"
   console.log(currSelectedNote);
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
