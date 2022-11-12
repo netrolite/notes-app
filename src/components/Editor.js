@@ -8,14 +8,23 @@ export default function Editor(props) {
 
     // update current note's text
     function updateNote() {
-        props.setCurrSelectedNote(prevState => {
-            const newText = document.querySelector(".editor-textarea").value;
+        const newText = document.querySelector(".editor-textarea").value;
+        props.setCurrNote(prevState => {
             return {
-                text: newText,
-                date: prevState.date,
-                id: prevState.id
+                ...prevState,
+                text: newText
             }
         })
+
+        props.setNotes(prevState => {
+            return prevState.forEach(note => {
+                if(note.id === props.currNote.id) {
+                    note.text = newText;
+                }
+            })
+        })
+
+        console.log(props.notes);
     }
 
     // make text in the editor change when different notes are selected!!!
@@ -43,7 +52,7 @@ export default function Editor(props) {
                 <textarea 
                     className="editor-textarea"
                     onChange={updateNote}               
-                    value={props.currSelectedNote.text}
+                    value={props.currNote.text}
                 /> 
             </div>
         </div>
