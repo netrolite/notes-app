@@ -4,6 +4,7 @@ import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 export default function Editor(props) { 
     function toggleDarkMode() {
         props.setDarkMode(prevMode => !prevMode);
+        JSON.stringify(localStorage.setItem("darkMode", !props.darkMode));
     }
 
     // update current note's text

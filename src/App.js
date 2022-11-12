@@ -16,8 +16,7 @@ export default function App() {
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
-  // save current darkMode to localStorage
-  JSON.stringify(localStorage.setItem("darkMode", darkMode));
+  console.log(darkMode);
 
   return (
     <main className={"main" + (darkMode ? " dark" : "")}>
@@ -32,6 +31,7 @@ export default function App() {
         setCurrNote={setCurrNote}
         notes={notes}
         setNotes={setNotes}
+        darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
     </main>
