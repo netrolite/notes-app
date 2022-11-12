@@ -26,6 +26,8 @@ export default function Editor(props) {
 
         console.log(props.notes);
     }
+
+    // make text in the editor change when different notes are selected!!!
     
     return (
         <div className="editor">
