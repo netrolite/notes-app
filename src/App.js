@@ -10,8 +10,9 @@ export default function App() {
   )
 
   const [currNoteID, setCurrNoteID] = useState(
-    // if notes[0] exists, use to notes[0]. Otherwise, use an empty string
-    notes[0].id || ""
+    // if notes[0] exists, set to notes[0]. Otherwise, set an empty string
+    // only runs on initial page load (or reload)!
+    notes[0] && notes[0].id || ""
   )
 
   const [darkMode, setDarkMode] = useState(
