@@ -12,7 +12,6 @@ export default function App() {
     // if notes[0] exists, set it to notes[0]
     notes[0] || ""
   )
-
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
