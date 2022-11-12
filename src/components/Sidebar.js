@@ -34,8 +34,8 @@ export default function Sidebar(props) {
             </div>
             <NotesList 
                 notes={props.notes}
-                currNote={props.currNote}
-                setCurrNote={props.setCurrNote}
+                currNoteID={props.currNoteID}
+                setcurrNoteID={props.setcurrNoteID}
             />
         </aside>
     )

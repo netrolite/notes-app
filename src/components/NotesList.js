@@ -3,7 +3,7 @@ import Note from "./Note"
 
 export default function NotesList(props) {
     function selectNote(ev, id) {
-        props.setCurrNote(prevState => {
+        props.setcurrNoteID(prevState => {
             let newText = "";
             let newDate = "";
             props.notes.forEach(note => {
@@ -22,14 +22,14 @@ export default function NotesList(props) {
 
     const notesElements = props.notes.map((note, index, array) => {
         let isAboveSelected = false;
-        // if the next note exists, and if that note's id matches currNote.id,
+        // if the next note exists, and if that note's id matches currNoteID.id,
         // then isAboveSelected = true
-        if(array[index + 1] && array[index + 1].id === props.currNote.id) {
+        if(array[index + 1] && array[index + 1].id === props.currNoteID.id) {
             isAboveSelected = true;
         }
         return (
             <Note 
-                currNote={props.currNote}
+                currNoteID={props.currNoteID}
                 selectNote={selectNote}
                 isAboveSelected={isAboveSelected}
                 text={note.text}

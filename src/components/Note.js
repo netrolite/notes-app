@@ -46,7 +46,7 @@ export default function Note(props) {
 
     return (
         <div className={
-                "note" + (props.id === props.currNote.id ? " selected" : "") 
+                "note" + (props.id === props.currNoteID.id ? " selected" : "") 
                 + (props.isAboveSelected ? " above-selected" : "")
             }
             onClick={ev => {props.selectNote(ev, props.id)}}

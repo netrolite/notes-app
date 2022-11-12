@@ -10,7 +10,7 @@ export default function Editor(props) {
     // update current note's text
     function updateNote() {
         const newText = document.querySelector(".editor-textarea").value;
-        props.setCurrNote(prevState => {
+        props.setcurrNoteID(prevState => {
             return {
                 ...prevState,
                 text: newText
@@ -19,7 +19,7 @@ export default function Editor(props) {
 
         props.setNotes(prevState => {
             return prevState.forEach(note => {
-                if(note.id === props.currNote.id) {
+                if(note.id === props.currNoteID.id) {
                     note.text = newText;
                 }
             })
@@ -51,7 +51,7 @@ export default function Editor(props) {
                 <textarea 
                     className="editor-textarea"
                     onChange={updateNote}               
-                    value={props.currNote.text}
+                    value={props.currNoteID.text}
                 /> 
             </div>
         </div>

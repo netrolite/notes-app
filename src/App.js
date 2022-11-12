@@ -8,27 +8,29 @@ export default function App() {
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("notes")) || []
   )
-  const [currNote, setCurrNote] = useState(
+
+  const [currNoteID, setcurrNoteID] = useState(
     // if notes[0] exists, set it to notes[0]
-    notes[0] || ""
+    notes[0].id || ""
   )
+  console.log(currNoteID);
+
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
-  console.log(darkMode);
 
   return (
     <main className={"main" + (darkMode ? " dark" : "")}>
       <Sidebar
         notes={notes}
         setNotes={setNotes}
-        currNote={currNote}
-        setCurrNote={setCurrNote}
+        currNoteID={currNoteID}
+        setcurrNoteID={setcurrNoteID}
       />
       <Editor 
-        currNote={currNote}
-        setCurrNote={setCurrNote}
+        currNoteID={currNoteID}
+        setcurrNoteID={setcurrNoteID}
         notes={notes}
         setNotes={setNotes}
         darkMode={darkMode}
