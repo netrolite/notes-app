@@ -17,7 +17,7 @@ export default function Editor(props) {
         // update "notes" state
         props.setNotes(prevState => {
             const unchangedNotes = prevState.filter(item => item.id !== props.currNoteID);
-            // 
+            // updated currently selected note
             const updatedNote = prevState[currNoteIndex];
             console.log(updatedNote);
             updatedNote.text = document.querySelector(".editor-textarea").value;
