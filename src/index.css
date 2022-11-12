@@ -88,6 +88,9 @@ body {
 }
 
 .sidebar-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   box-sizing: content-box;
   display: flex;
   justify-content: center;
