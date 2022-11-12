@@ -9,11 +9,10 @@ export default function App() {
     JSON.parse(localStorage.getItem("notes")) || []
   )
 
-  const [currNoteID, setcurrNoteID] = useState(
-    // if notes[0] exists, set it to notes[0]
+  const [currNoteID, setCurrNoteID] = useState(
+    // if notes[0] exists, use to notes[0]. Otherwise, use an empty string
     notes[0].id || ""
   )
-  console.log(currNoteID);
 
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
@@ -26,11 +25,11 @@ export default function App() {
         notes={notes}
         setNotes={setNotes}
         currNoteID={currNoteID}
-        setcurrNoteID={setcurrNoteID}
+        setCurrNoteID={setCurrNoteID}
       />
       <Editor 
         currNoteID={currNoteID}
-        setcurrNoteID={setcurrNoteID}
+        setCurrNoteID={setCurrNoteID}
         notes={notes}
         setNotes={setNotes}
         darkMode={darkMode}

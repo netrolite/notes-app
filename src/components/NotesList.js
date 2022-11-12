@@ -3,21 +3,7 @@ import Note from "./Note"
 
 export default function NotesList(props) {
     function selectNote(ev, id) {
-        props.setcurrNoteID(prevState => {
-            let newText = "";
-            let newDate = "";
-            props.notes.forEach(note => {
-                if(note.id === id) {
-                    newText = note.text;
-                    newDate = note.date
-                }
-            });
-            return {
-                text: newText,
-                date: newDate,
-                id: id
-            }
-        })
+        props.setCurrNoteID(id)
     }
 
     const notesElements = props.notes.map((note, index, array) => {

@@ -5,7 +5,7 @@ import NotesList from "./NotesList";
 export default function Sidebar(props) {
     function createNote() {
         const newNote = {
-            text: `jasd;lfjasdjjjooivemrovimervoemerivimr`,
+            text: `jasd;lfjasdjjjoo`,
             date: new Date().getTime(),
             id: nanoid()
         }
@@ -35,7 +35,7 @@ export default function Sidebar(props) {
             <NotesList 
                 notes={props.notes}
                 currNoteID={props.currNoteID}
-                setcurrNoteID={props.setcurrNoteID}
+                setCurrNoteID={props.setCurrNoteID}
             />
         </aside>
     )

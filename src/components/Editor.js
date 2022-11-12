@@ -7,26 +7,14 @@ export default function Editor(props) {
         JSON.stringify(localStorage.setItem("darkMode", !props.darkMode));
     }
 
-    // update current note's text
     function updateNote() {
-        const newText = document.querySelector(".editor-textarea").value;
-        props.setcurrNoteID(prevState => {
-            return {
-                ...prevState,
-                text: newText
-            }
-        })
 
-        props.setNotes(prevState => {
-            return prevState.forEach(note => {
-                if(note.id === props.currNoteID.id) {
-                    note.text = newText;
-                }
-            })
-        })
-
-        console.log(props.notes);
     }
+
+    // Index of currently selected note
+    const currNoteIndex = props.notes.indexOf(
+        props.notes.find(item => item.id === props.currNoteID)
+    )
     
     return (
         <div className="editor">
@@ -51,7 +39,7 @@ export default function Editor(props) {
                 <textarea 
                     className="editor-textarea"
                     onChange={updateNote}               
-                    value={props.currNoteID.text}
+                    value={props.notes[currNoteIndex].text}
                 /> 
             </div>
         </div>
