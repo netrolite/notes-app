@@ -5,7 +5,7 @@ import NotesList from "./NotesList";
 export default function Sidebar(props) {
     function createNote() {
         const newNote = {
-            text: `jasd;lfjasdjjjoo`,
+            text: ``,
             date: new Date().getTime(),
             id: nanoid()
         }
