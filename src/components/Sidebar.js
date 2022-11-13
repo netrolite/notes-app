@@ -4,10 +4,12 @@ import NotesList from "./NotesList";
 
 export default function Sidebar(props) {
     function createNote() {
+        const newID = nanoid();
+        props.setCurrNoteID(newID)
         const newNote = {
             text: ``,
             date: new Date().getTime(),
-            id: nanoid()
+            id: newID
         }
 
         // adding "newNote" to "notes" state
