@@ -14,23 +14,17 @@ export default function Editor(props) {
 
     // runs when user updates text inside "editor-textarea"
     function updateNote() {
-        // updates "notes" state
+        // update "notes" state
         props.setNotes(prevState => {
             const unchangedNotes = prevState.filter(item => item.id !== props.currNoteID);
-
             // updated currently selected note
             const updatedNote = prevState[currNoteIndex];
+            console.log(updatedNote);
             updatedNote.text = document.querySelector(".editor-textarea").value;
-            const now = new Date();
-            console.log(now.getTime());
-            updatedNote.date = now.getTime();
-
+            console.log(unchangedNotes);
             return [updatedNote, ...unchangedNotes];
         })
     }
-
-    // updates localStorage accordingly when detects "notes" state was updated
-    
     
     return (
         <div className="editor">
