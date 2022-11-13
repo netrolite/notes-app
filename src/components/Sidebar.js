@@ -12,10 +12,10 @@ export default function Sidebar(props) {
             id: newID
         }
 
-        // adding "newNote" to "notes" state
+        // adding "newNote" to "notes" state (at the start)
         props.setNotes(prevState => [newNote, ...prevState]);
         // adding "newNote" to localStorage
-        // "oldNotesLocalStorage" is either parsed "notes" array from localStorage or an empty array
+        // "oldLocalStorage" is either parsed "notes" array from localStorage or an empty array
         const oldLocalStorage = JSON.parse(localStorage.getItem("notes")) || [];
         localStorage.setItem(
             "notes",
