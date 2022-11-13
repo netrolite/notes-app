@@ -12,7 +12,7 @@ export default function NotesList(props) {
         let isAboveSelected = false;
         // if the next note exists, and if that note's id matches currNoteID.id,
         // then isAboveSelected = true
-        if(array[index + 1] && array[index + 1].id === props.currNoteID.id) {
+        if(array[index + 1] && array[index + 1].id === props.currNoteID) {
             isAboveSelected = true;
         }
         return (
