@@ -14,24 +14,14 @@ export default function Editor(props) {
 
     // runs when user updates text inside "editor-textarea"
     function updateNote() {
-        // update "notes" state
-        props.setNotes(prevState => {
-            const unchangedNotes = prevState.filter(item => item.id !== props.currNoteID);
-
-            // updated currently selected note
-            const updatedNote = prevState[currNoteIndex];
-            updatedNote.text = document.querySelector(".editor-textarea").value;
-
-            return [updatedNote, ...unchangedNotes];
-        })
-
-        // saving new thing to localStorage
-        const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID); 
-            
+        const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
         // updated currently selected note
         const updatedNote = props.notes[currNoteIndex];
         updatedNote.text = document.querySelector(".editor-textarea").value;
 
+        props.setNotes([updatedNote, ...unchangedNotes])
+
+        // saving new thing to localStorage
         localStorage.setItem(
             "notes",
             JSON.stringify([updatedNote, ...unchangedNotes])
