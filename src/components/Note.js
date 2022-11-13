@@ -11,9 +11,11 @@ export default function Note(props) {
     )
 
     // update formattedDate every minute
-    setInterval(() => {
-        setFormattedDate(timeElapsed(props.date) + " ago")
-    }, 60000)
+    function updateTime() {
+        setFormattedDate(timeElapsed(props.date) + " ago");
+    }
+
+    setInterval(updateTime(), 10)
 
     function timeElapsed(pastDate) {
         // time right now
@@ -41,7 +43,7 @@ export default function Note(props) {
         const minutes = Math.floor(seconds / 60);
         if(minutes > 0) return minutes + " minute" + (minutes > 1 ? "s" : "");
 
-        return "Less than a minute"
+        return Math.floor(seconds) + " second" + (seconds > 1 ? "s" : "");
     }
 
     return (

@@ -21,21 +21,16 @@ export default function Editor(props) {
             // updated currently selected note
             const updatedNote = prevState[currNoteIndex];
             updatedNote.text = document.querySelector(".editor-textarea").value;
-            updatedNote.date = new Date().getTime();
+            const now = new Date();
+            console.log(now.getTime());
+            updatedNote.date = now.getTime();
 
             return [updatedNote, ...unchangedNotes];
         })
     }
 
     // updates localStorage accordingly when detects "notes" state was updated
-    useEffect(() => {
-        const updatedNote = props.notes[0];
-        const unchangedNotes = props.notes.filter(item => (
-            item.id !== props.notes[0].id
-        ))
-
-        localStorage.setItem("notes", JSON.stringify([updatedNote, ...unchangedNotes]))
-    }, [props.notes])
+    
     
     return (
         <div className="editor">
