@@ -14,15 +14,14 @@ export default function Note(props) {
     // when note is updated, "setInterval" get stacked up and shit happens
 
     // kill all intervals on the page
+    // stops all other timers (trash)
     useEffect(() => {
         var killId = setTimeout(() => {
             for (var i = killId; i > 0; i--) {
-                console.log(i);
                 clearInterval(i);
             } 
         }, 15);
 
-        console.log("ran");
         setInterval(() => {
             setFormattedDate(
                 timeElapsed(props.date) + " ago"
@@ -57,7 +56,11 @@ export default function Note(props) {
         const minutes = Math.floor(seconds / 60);
         if(minutes > 0) return minutes + " minute" + (minutes > 1 ? "s" : "");
 
-        return Math.floor(seconds) + " second" + (seconds > 1 ? "s" : "");
+        const secondsFloored = Math.floor(seconds)
+        if(secondsFloored > 1 || secondsFloored === 0) {
+            return secondsFloored + " seconds"
+        }
+        else return secondsFloored + " second"
     }
 
     return (
