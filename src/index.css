@@ -218,11 +218,11 @@ body {
 
 .note-date, .note-snippet {
   font-size: 0.8rem;
-  color: var(--clr-font-snippet-light)
+  color: var(--clr-note-meta-light)
 }
 
 .note.selected .note-date,
-.note-selected .note-snippet {
+.note.selected .note-snippet {
   color: var(--clr-note-meta-selected-light);
 }
 

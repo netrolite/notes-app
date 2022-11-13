@@ -25,6 +25,8 @@ export default function Editor(props) {
             return [updatedNote, ...unchangedNotes];
         })
     }
+
+    console.log(currNoteIndex);
     
     return (
         <div className="editor">
@@ -49,7 +51,7 @@ export default function Editor(props) {
                 <textarea 
                     className="editor-textarea"
                     onChange={updateNote}               
-                    value={props.notes[currNoteIndex].text}
+                    value={props.notes.length ? props.notes[currNoteIndex].text : ""}
                 /> 
             </div>
         </div>
