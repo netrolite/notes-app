@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Note(props) {
     // first line of "props.text"
@@ -12,11 +12,24 @@ export default function Note(props) {
 
     // update formattedDate every minute
     // when note is updated, "setInterval" get stacked up and shit happens
-    setInterval(() => {
-        setFormattedDate(
-            timeElapsed(props.date) + " ago"
-        )
-    }, 1000)
+
+    // kill all intervals on the page
+    useEffect(() => {
+        var killId = setTimeout(() => {
+            for (var i = killId; i > 0; i--) {
+                console.log(i);
+                clearInterval(i);
+            } 
+        }, 15);
+
+        console.log("ran");
+        setInterval(() => {
+            setFormattedDate(
+                timeElapsed(props.date) + " ago"
+            )
+        }, 1000)
+    }, [props.text])
+
 
     function timeElapsed(pastDate) {
         // time right now

@@ -18,6 +18,7 @@ export default function Editor(props) {
         // updated currently selected note
         const updatedNote = props.notes[currNoteIndex];
         updatedNote.text = document.querySelector(".editor-textarea").value;
+        updatedNote.date = new Date().getTime();
 
         props.setNotes([updatedNote, ...unchangedNotes])
 
@@ -27,8 +28,6 @@ export default function Editor(props) {
             JSON.stringify([updatedNote, ...unchangedNotes])
         )
     }
-
-    console.log(currNoteIndex);
     
     return (
         <div className="editor">

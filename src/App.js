@@ -20,6 +20,9 @@ export default function App() {
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
 
+  const currNote = notes.find(item => item.id === currNoteID);
+  console.log(currNote);
+
   return (
     <main className={"main" + (darkMode ? " dark" : "")}>
       <Sidebar
