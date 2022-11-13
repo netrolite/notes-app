@@ -11,6 +11,12 @@ export default function Note(props) {
     )
 
     // update formattedDate every minute
+    // when note is updated, "setInterval" get stacked up and shit happens
+    setInterval(() => {
+        setFormattedDate(
+            timeElapsed(props.date) + " ago"
+        )
+    }, 1000)
 
     function timeElapsed(pastDate) {
         // time right now
