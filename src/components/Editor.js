@@ -71,9 +71,6 @@ export default function Editor(props) {
             props.setCurrNoteID("");
         }
     }
-    
-    console.log(props.notes);
-    console.log(currNoteIndex);
 
     return (
             <textarea 
