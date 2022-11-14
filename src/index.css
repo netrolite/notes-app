@@ -229,6 +229,7 @@ body {
   height: calc(100vh - 72px);
   outline: none;
   border: none;
+  border-radius: none;
   resize: none;
 }
 
