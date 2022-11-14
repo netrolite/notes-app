@@ -179,6 +179,7 @@ body {
 .note.selected .note-inside,
 .note.above-selected .note-inside {
   border: none;
+  padding-bottom: 7px;
 }
 
 .note-title, .note-date, .note-snippet {
