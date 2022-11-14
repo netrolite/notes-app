@@ -18,7 +18,8 @@ export default function Editor(props) {
         // updated currently selected note
         const updatedNote = props.notes[currNoteIndex];
         updatedNote.text = document.querySelector(".editor-textarea").value;
-        updatedNote.date = new Date().getTime();
+        // adding 1 second to make timer restart on 0, rather than 1
+        updatedNote.date = new Date().getTime() + 1000;
 
         props.setNotes([updatedNote, ...unchangedNotes])
 

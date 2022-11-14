@@ -9,34 +9,17 @@ export default function Note(props) {
     const [formattedDate, setFormattedDate] = useState(
         timeElapsed(props.date) + " ago"
     );
-    const isMounted = useRef(false);
-    const timesUpdated = useRef(0);
 
-    // update formattedDate every minute
-    // when note is updated, "setInterval" get stacked up and shit happens
-
-    let initialInterval = setInterval(() => {
-        setFormattedDate(
-            timeElapsed(props.date) + " ago"
-        )
-    }, 1000);
-
+    // runs on initial render or whenever "props.date" updates
+    // sets a new interval to update "formattedDate" every second
+    // and removes that interval when it's time to unmount (re-render) so they don't get stacked up
     useEffect(() => {
-        console.log(initialInterval);
-        console.log(isMounted.current);
-        if(isMounted.current) {
-            clearInterval(initialInterval);
-            const interval = setInterval(() => {
-                setFormattedDate(
-                    timeElapsed(props.date) + " ago"
-                )
-            }, 1000);
-        }
-        else {
-            isMounted.current = true;
-        }
-    }, [props.text]);
+        const interval = setInterval(() => {
+            setFormattedDate(timeElapsed(props.date) + " ago")
+        }, 1000);
 
+        return () => clearInterval(interval)
+    }, [props.date])
 
     function timeElapsed(pastDate) {
         // time right now
