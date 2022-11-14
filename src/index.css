@@ -237,6 +237,7 @@ body {
   /* remove textarea rounding */
   border-radius: none;
   -webkit-appearance: none;
+  appearance: none;
   resize: none;
 }
 
