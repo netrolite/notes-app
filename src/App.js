@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { nanoid } from "nanoid"
 import "./index.css"
+import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 
@@ -21,21 +22,30 @@ export default function App() {
   );
 
   return (
-    <main className={"main" + (darkMode ? " dark" : "")}>
-      <Sidebar
-        notes={notes}
-        setNotes={setNotes}
-        currNoteID={currNoteID}
-        setCurrNoteID={setCurrNoteID}
-      />
-      <Editor 
-        currNoteID={currNoteID}
-        setCurrNoteID={setCurrNoteID}
-        notes={notes}
-        setNotes={setNotes}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
-    </main>
+    <>
+      <nav>
+        <Topbar 
+          setDarkMode={setDarkMode}
+          notes={notes}
+          currNoteID={currNoteID}
+        />
+      </nav>
+      <main className={"main" + (darkMode ? " dark" : "")}>
+        <Sidebar
+          notes={notes}
+          setNotes={setNotes}
+          currNoteID={currNoteID}
+          setCurrNoteID={setCurrNoteID}
+        />
+        <Editor 
+          currNoteID={currNoteID}
+          setCurrNoteID={setCurrNoteID}
+          notes={notes}
+          setNotes={setNotes}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+      </main>
+    </>
   );
 }
