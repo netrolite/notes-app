@@ -28,7 +28,9 @@ export default function App() {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
           notes={notes}
+          setNotes={setNotes}
           currNoteID={currNoteID}
+          setCurrNoteID={setCurrNoteID}
         />
       </nav>
       <main className="main">
