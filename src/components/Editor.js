@@ -33,7 +33,10 @@ export default function Editor(props) {
     function deleteNote() {
         props.setNotes(notes => {
             // filters out the curretly selected note
-            return notes.filter(note => note.id !== props.currNoteID)
+            notes = notes.filter(note => note.id !== props.currNoteID);
+            // saving filtered notes to localStorage
+            localStorage.setItem("notes", JSON.stringify(notes));
+            return notes;
         });
 
         // if next note in the array exists, use it as current
