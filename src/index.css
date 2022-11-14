@@ -39,6 +39,11 @@
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
   overflow: hidden;
+  background-color: var(--clr-bg-light);
+}
+
+.page-wrapper.dark body {
+  background-color: var(--clr-bg-editor-dark);
 }
 
 .main {
