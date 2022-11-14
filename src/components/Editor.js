@@ -1,34 +1,49 @@
+import { nanoid } from "nanoid";
 import React, { useState, useEffect } from "react";
 import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 
 export default function Editor(props) { 
-    function toggleDarkMode() {
-        props.setDarkMode(prevMode => !prevMode);
-        JSON.stringify(localStorage.setItem("darkMode", !props.darkMode));
-    }
-
-    // runs when user updates text inside "editor"
-    function updateNote() {
-        const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
-        // updated currently selected note
-        const updatedNote = props.notes[currNoteIndex];
-        updatedNote.text = document.querySelector(".editor").value;
-        // adding 1 second to make timer restart on 0, rather than 1
-        updatedNote.date = new Date().getTime() + 1000;
-
-        props.setNotes([updatedNote, ...unchangedNotes])
-
-        // saving new thing to localStorage
-        localStorage.setItem(
-            "notes",
-            JSON.stringify([updatedNote, ...unchangedNotes])
-        )
-    }
-
     // index of currently selected note
     const currNoteIndex = props.notes.indexOf(
         props.notes.find(item => item.id === props.currNoteID)
     )
+
+    // runs when user updates text inside "editor"
+    function updateNote() {
+        // if there are no notes
+        if(props.notes.length === 0) {
+            const newID = nanoid();
+
+            // add new note to "notes" state
+            props.setNotes(() => {
+                return [{
+                    text: document.querySelector(".editor").value,
+                    id: newID,
+                    date: new Date().getTime()
+                }]
+            })
+
+            // set "currNoteID" to ID of the newly created note
+            props.setCurrNoteID(newID);
+        }
+        // if notes.length > 0
+        else {
+            const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
+            // updated currently selected note
+            const updatedNote = props.notes[currNoteIndex];
+            updatedNote.text = document.querySelector(".editor").value;
+            // adding 1 second to make timer restart on 0, rather than 1
+            updatedNote.date = new Date().getTime() + 1000;
+
+            props.setNotes([updatedNote, ...unchangedNotes])
+
+            // saving new thing to localStorage
+            localStorage.setItem(
+                "notes",
+                JSON.stringify([updatedNote, ...unchangedNotes])
+            )
+        }
+    }
 
     function deleteNote() {
         props.setNotes(notes => {
@@ -57,6 +72,9 @@ export default function Editor(props) {
         }
     }
     
+    console.log(props.notes);
+    console.log(currNoteIndex);
+
     return (
             <textarea 
                 className="editor"

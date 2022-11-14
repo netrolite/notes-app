@@ -90,20 +90,17 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  box-sizing: content-box;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--clr-bg-topbar-light);
   padding: 15px 10px 15px 10px;
   border-right: 1px solid var(--clr-bg-topbar-divider-light);
-  border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
 }
 
 .page-wrapper.dark .topbar-create-note {
   background-color: var(--clr-bg-topbar-dark);
   border-right: 1px solid var(--clr-bg-topbar-divider-dark);
-  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
 }
 
 .add-note {
