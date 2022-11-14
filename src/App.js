@@ -22,7 +22,7 @@ export default function App() {
   );
 
   return (
-    <>
+    <div className={"page-wrapper" + (darkMode ? " dark" : "")}>
       <nav>
         <Topbar 
           setDarkMode={setDarkMode}
@@ -30,7 +30,7 @@ export default function App() {
           currNoteID={currNoteID}
         />
       </nav>
-      <main className={"main" + (darkMode ? " dark" : "")}>
+      <main className="main">
         <Sidebar
           notes={notes}
           setNotes={setNotes}
@@ -46,6 +46,6 @@ export default function App() {
           setDarkMode={setDarkMode}
         />
       </main>
-    </>
+    </div>
   );
 }
