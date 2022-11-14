@@ -7,12 +7,12 @@ export default function Editor(props) {
         JSON.stringify(localStorage.setItem("darkMode", !props.darkMode));
     }
 
-    // runs when user updates text inside "editor-textarea"
+    // runs when user updates text inside "editor"
     function updateNote() {
         const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
         // updated currently selected note
         const updatedNote = props.notes[currNoteIndex];
-        updatedNote.text = document.querySelector(".editor-textarea").value;
+        updatedNote.text = document.querySelector(".editor").value;
         // adding 1 second to make timer restart on 0, rather than 1
         updatedNote.date = new Date().getTime() + 1000;
 
@@ -58,32 +58,10 @@ export default function Editor(props) {
     }
     
     return (
-        <div className="editor">
-            <div className="top-bar" role="controls-bar">
-                <IoTrashOutline 
-                    className="topbar-icon" 
-                    title="Delete note"
-                    onClick={deleteNote}
-                />
-                <div 
-                    className="dark-mode"
-                    onClick={toggleDarkMode}
-                    title="Toggle dark theme"
-                >
-                    <div className="dark-mode-label">Dark Mode</div>
-                    <div className="dark-mode-switch">
-                        <div className="dark-mode-switch-circle"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="editor">
-                <textarea 
-                    className="editor-textarea"
-                    onChange={updateNote}               
-                    value={props.notes.length ? props.notes[currNoteIndex].text : ""}
-                /> 
-            </div>
-        </div>
+            <textarea 
+                className="editor"
+                onChange={updateNote}               
+                value={props.notes.length ? props.notes[currNoteIndex].text : ""}
+            /> 
     )
 }
