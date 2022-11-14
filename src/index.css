@@ -3,7 +3,7 @@
   --clr-font-dark: rgb(255, 255, 255);
   --clr-note-meta-light: rgb(128, 128, 128);
   --clr-note-meta-dark: rgb(154, 152, 156);
-  --clr-note-meta-selected-light: rgb(128, 114, 73);
+  --clr-note-meta-selected-light: rgb(107, 95, 62);
   --clr-note-meta-selected-dark: rgb(224, 209, 171);
   --clr-icons-light: rgb(107, 107, 107);
   --clr-icons-dark: rgb(151, 150, 153);
@@ -26,14 +26,6 @@
   --clr-bg-topbar-divider-dark: rgb(0, 0, 1);
   --clr-selected-light: rgb(215, 215, 215);
   --clr-selected-dark: rgb(61, 61, 61);
-}
-
-[data-color-scheme="dark"] {
-  color-scheme: dark;
-}
-
-[data-color-scheme="light"] {
-  color-scheme: light;
 }
 
 *,
@@ -72,13 +64,10 @@ body {
   /* removing scrollbars (IE 10+, Firefox) */
   -ms-overflow-style: none;
   scrollbar-width: none;
+  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
 }
 
 /* removing scrollbars (Safari, Chrome) */
-.sidebar::-webkit-scrollbar {
-  display: none;
-}
-
 .sidebar::-webkit-scrollbar {
   display: none;
 }
@@ -119,7 +108,7 @@ body {
   width: 100%;
 }
 
-.add-note:hover {
+.add-note:hover, .topbar-icon:hover {
   cursor: pointer;
 }
 
@@ -152,7 +141,7 @@ body {
   height: 100%;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
-  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
+  border-bottom: 1px solid var(--clr-bg-sidebar-divider-light);
 }
 
 .main.dark .sidebar-notes-list {
@@ -173,14 +162,6 @@ body {
 
 .main.dark .note.selected {
   background-color: var(--clr-accent-dark);
-}
-
-.note.dimmed {
-  background-color: var(--clr-accent-light-dimmed);
-}
-
-.main.dark .note.dimmed {
-  background-color: var(--clr-accent-dark-dimmed);
 }
 
 .note-inside {
@@ -248,6 +229,7 @@ body {
 }
 
 .editor-textarea {
+  padding: 10px;
   font-size: 1.4rem;
   font-family: inherit;
   max-width: 100%;
@@ -330,10 +312,6 @@ body {
   color: var(--clr-icons-light);
   height: 22px;
   width: 22px;
-}
-
-.topbar-icon:hover {
-  cursor: pointer;
 }
 
 .main.dark .topbar-icon {
