@@ -46,7 +46,7 @@ body {
   color: var(--clr-font-light);
 }
 
-.main.dark {
+.page-wrapper.dark {
   color: var(--clr-font-dark);
 }
 
@@ -72,7 +72,7 @@ body {
   display: none;
 }
 
-.main.dark .sidebar {
+.page-wrapper.dark .sidebar {
   background-color: var(--clr-bg-sidebar-dark);
 }
 
@@ -90,7 +90,7 @@ body {
   border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
 }
 
-.main.dark .sidebar-header {
+.page-wrapper.dark .sidebar-header {
   background-color: var(--clr-bg-topbar-dark);
   border-right: 1px solid var(--clr-bg-topbar-divider-dark);
   border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
@@ -112,12 +112,12 @@ body {
   cursor: pointer;
 }
 
-.main.dark .add-note {
+.page-wrapper.dark .add-note {
   color: var(--clr-font-dark);
   background-color: var(--clr-accent-dark);
 }
 
-.main.dark .sidebar-header-divider {
+.page-wrapper.dark .sidebar-header-divider {
   border-top: 1px solid var(--clr-bg-divider-dark);
 }
 
@@ -131,7 +131,7 @@ body {
   color: var(--clr-no-notes-light);
 }
 
-.main.dark .no-notes {
+.page-wrapper.dark .no-notes {
   color: var(--clr-no-notes-dark);
 }
 
@@ -144,7 +144,7 @@ body {
   border-bottom: 1px solid var(--clr-bg-sidebar-divider-light);
 }
 
-.main.dark .sidebar-notes-list {
+.page-wrapper.dark .sidebar-notes-list {
   background-color: var(--clr-bg-sidebar-dark);
   border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
@@ -160,7 +160,7 @@ body {
   background-color: var(--clr-accent-light);
 }
 
-.main.dark .note.selected {
+.page-wrapper.dark .note.selected {
   background-color: var(--clr-accent-dark);
 }
 
@@ -172,7 +172,7 @@ body {
   border-bottom: 1px solid var(--clr-note-divider-light);
 }
 
-.main.dark .note-inside {
+.page-wrapper.dark .note-inside {
   border-bottom: 1px solid var(--clr-note-divider-dark);
 }
 
@@ -197,6 +197,10 @@ body {
   font-size: 0.95rem;
 }
 
+.page-wrapper.dark .note-title {
+  color: var(--clr-font-dark);
+}
+
 .note-date, .note-snippet {
   font-size: 0.8rem;
   color: var(--clr-note-meta-light)
@@ -207,13 +211,13 @@ body {
   color: var(--clr-note-meta-selected-light);
 }
 
-.main.dark .note-date,
-.main.dark .note-snippet {
+.page-wrapper.dark .note-date,
+.page-wrapper.dark .note-snippet {
   color: var(--clr-note-meta-dark);
 }
 
-.main.dark .note.selected .note-date,
-.main.dark .note.selected .note-snippet {
+.page-wrapper.dark .note.selected .note-date,
+.page-wrapper.dark .note.selected .note-snippet {
   color: var(--clr-note-meta-selected-dark);
 }
 
@@ -240,8 +244,8 @@ body {
   resize: none;
 }
 
-.main.dark .editor,
-.main.dark .editor-textarea {
+.page-wrapper.dark .editor,
+.page-wrapper.dark .editor-textarea {
   background-color: var(--clr-bg-editor-dark);
   color: var(--clr-font-dark);
 }
@@ -259,7 +263,7 @@ body {
   border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
 }
 
-.main.dark .top-bar {
+.page-wrapper.dark .top-bar {
   background-color: var(--clr-bg-topbar-dark);
   border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
 }
@@ -275,7 +279,7 @@ body {
   cursor: pointer;
 }
 
-.main.dark .dark-mode {
+.page-wrapper.dark .dark-mode {
   color: var(--clr-icons-dark);
 }
 
@@ -301,7 +305,7 @@ body {
   background-color: var(--clr-icons-light);
 }
 
-.main.dark .dark-mode-switch-circle {
+.page-wrapper.dark .dark-mode-switch-circle {
   top: 50%;
   transition: 200ms;
   transform: translate(-15%, -50%);
@@ -314,7 +318,7 @@ body {
   width: 22px;
 }
 
-.main.dark .topbar-icon {
+.page-wrapper.dark .topbar-icon {
   color: var(--clr-icons-dark);
 }
 
