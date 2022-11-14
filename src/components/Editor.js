@@ -2,11 +2,6 @@ import React, { useState, useEffect } from "react";
 import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 
 export default function Editor(props) { 
-    // Index of currently selected note
-    const currNoteIndex = props.notes.indexOf(
-        props.notes.find(item => item.id === props.currNoteID)
-    )
-
     function toggleDarkMode() {
         props.setDarkMode(prevMode => !prevMode);
         JSON.stringify(localStorage.setItem("darkMode", !props.darkMode));
@@ -29,6 +24,35 @@ export default function Editor(props) {
             JSON.stringify([updatedNote, ...unchangedNotes])
         )
     }
+
+    // index of currently selected note
+    const currNoteIndex = props.notes.indexOf(
+        props.notes.find(item => item.id === props.currNoteID)
+    )
+
+    function deleteNote() {
+        props.setNotes(notes => {
+            // filters out the curretly selected note
+            return notes.filter(note => note.id !== props.currNoteID)
+        });
+
+        // if next note in the array exists, use it as current
+        if(props.notes[currNoteIndex + 1]) {
+            props.setCurrNoteID(() => {
+                return props.notes[currNoteIndex + 1].id
+            });
+        }
+        // if previous note in the array exists, use it as current
+        else if(props.notes[currNoteIndex - 1]) {
+            props.setCurrNoteID(() => {
+                return props.notes[currNoteIndex - 1].id
+            });
+        }
+        // if the array is empty
+        else {
+            props.setCurrNoteID("");
+        }
+    }
     
     return (
         <div className="editor">
@@ -36,6 +60,7 @@ export default function Editor(props) {
                 <IoTrashOutline 
                     className="topbar-icon" 
                     title="Delete note"
+                    onClick={deleteNote}
                 />
                 <div 
                     className="dark-mode"
