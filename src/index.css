@@ -234,7 +234,9 @@ body {
   height: calc(100vh - 72px);
   outline: none;
   border: none;
+  /* remove textarea rounding */
   border-radius: none;
+  -webkit-appearance: none;
   resize: none;
 }
 
