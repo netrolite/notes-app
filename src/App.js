@@ -25,6 +25,7 @@ export default function App() {
     <div className={"page-wrapper" + (darkMode ? " dark" : "")}>
       <nav>
         <Topbar 
+          darkMode={darkMode}
           setDarkMode={setDarkMode}
           notes={notes}
           currNoteID={currNoteID}

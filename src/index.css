@@ -139,12 +139,10 @@ body {
   height: 100%;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
-  border-bottom: 1px solid var(--clr-bg-sidebar-divider-light);
 }
 
 .page-wrapper.dark .sidebar-notes-list {
   background-color: var(--clr-bg-sidebar-dark);
-  border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
 
 .note {
