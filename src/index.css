@@ -44,6 +44,9 @@ body {
 
 .page-wrapper.dark body {
   background-color: var(--clr-bg-editor-dark);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 .main {
