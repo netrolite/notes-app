@@ -44,6 +44,9 @@ body {
 
 .page-wrapper.dark body {
   background-color: var(--clr-bg-editor-dark);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 .main {
@@ -55,125 +58,6 @@ body {
   color: var(--clr-font-dark);
 }
 
-/* TOPBAR */
-
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 72px;
-  background-color: var(--clr-bg-topbar-light);
-  border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
-}
-.page-wrapper.dark .topbar {
-  background-color: var(--clr-bg-topbar-dark);
-  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
-}
-
-/* DESKTOP || MOBILE */
-.desktop {
-  display: flex; 
-  width: 100%;
-  height: 100%;
-}
-.mobile { display: none; }
-
-/* Wrapper for "Create a note" button */
-.topbar-left-side {
-  display: flex;
-  align-items: center;
-  max-width: 265px;
-  width: 100%;
-  padding: 0 10px;
-  border-right: 1px solid var(--clr-bg-topbar-divider-light);
-}
-.page-wrapper.dark .topbar-left-side {
-  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
-}
-
-/* "Create a note" button */
-.topbar-create-note-button {
-  font-family: inherit;
-  font-weight: 400; 
-  font-size: 1.1rem;
-  color: var(--clr-font-light);
-  background-color: var(--clr-accent-light);
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
-}
-.topbar-create-note-button:hover, .topbar-icon:hover {
-  cursor: pointer;
-}
-.page-wrapper.dark .topbar-create-note-button {
-  color: var(--clr-font-dark);
-  background-color: var(--clr-accent-dark);
-}
-
-.topbar-right-side {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  padding: 15px 10px 15px 10px;
-}
-
-/* Icons */
-.topbar-icon { 
-  color: var(--clr-icons-light);
-  height: 22px;
-  width: 22px;
-}
-.page-wrapper.dark .topbar-icon {
-  color: var(--clr-icons-dark);
-}
-
-/* DARKMODE SWITCH */
-
-/* This includes both the text "Dark Mode" and the switch */
-.dark-mode {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--clr-icons-light);
-}
-
-.page-wrapper.dark .dark-mode { color: var(--clr-icons-dark); }
-.dark-mode:hover { cursor: pointer; }
-.dark-mode-label { font-size: 1rem; }
-
-
-.dark-mode-switch {
-  position: relative;
-  padding: 0 2px;
-  border: 1px solid var(--clr-icons-light);
-  border-radius: 30px;
-  width: 50px;
-  height: 26px;
-}
-
-.dark-mode-switch-circle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-110%, -50%);
-  transition: 200ms;
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--clr-icons-light);
-  border-radius: 30px;
-  background-color: var(--clr-icons-light);
-}
-
-.page-wrapper.dark .dark-mode-switch-circle {
-  top: 50%;
-  transition: 200ms;
-  transform: translate(10%, -50%);
-  background-color: var(--clr-accent-dark);
-}
 
 /* SIDEBAR */
 
@@ -201,6 +85,45 @@ body {
   border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
 
+.topbar-create-note {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-bg-topbar-light);
+  padding: 15px 10px 15px 10px;
+  border-right: 1px solid var(--clr-bg-topbar-divider-light);
+}
+
+.page-wrapper.dark .topbar-create-note {
+  background-color: var(--clr-bg-topbar-dark);
+  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
+}
+
+.add-note {
+  font-family: inherit;
+  font-weight: 400; 
+  font-size: 1.1rem;
+  color: var(--clr-font-light);
+  background-color: var(--clr-accent-light);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.add-note:hover, .topbar-icon:hover {
+  cursor: pointer;
+}
+
+.page-wrapper.dark .add-note {
+  color: var(--clr-font-dark);
+  background-color: var(--clr-accent-dark);
+}
+
 .no-notes {
   height: 100%;
   display: flex;
@@ -217,7 +140,7 @@ body {
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
-  padding-bottom: 30px;
+  height: 100%;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
 }
@@ -255,12 +178,12 @@ body {
 
 .note:last-child .note-inside {
   border-bottom: none;
+  padding-bottom: 30px;
 }
 
 .note.selected .note-inside,
 .note.above-selected .note-inside {
   border: none;
-  /* 1 additional px of padding to make up for border */
   padding-bottom: 7px;
 }
 
@@ -326,10 +249,89 @@ body {
 
 /* TOPBAR */
 
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 72px;
+  background-color: var(--clr-bg-topbar-light);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
+}
 
+.page-wrapper.dark .topbar {
+  background-color: var(--clr-bg-topbar-dark);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
+}
 
-@media all and (max-width: 550px) {
-  .sidebar-notes-list {
-    padding-bottom: 90px;
-  }
+#topbar-create-note-section {
+  display: flex;
+  justify-content: space-between;
+  max-width: 265px;
+  width: 100%;
+}
+
+#topbar-buttons-section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.dark-mode {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--clr-icons-light);
+}
+
+.dark-mode:hover {
+  cursor: pointer;
+}
+
+.page-wrapper.dark .dark-mode {
+  color: var(--clr-icons-dark);
+}
+
+.dark-mode-switch {
+  position: relative;
+  padding: 0 2px;
+  border: 1px solid var(--clr-icons-light);
+  border-radius: 30px;
+  width: 40px;
+  height: 26px;
+}
+
+.dark-mode-switch-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-85%, -50%);
+  transition: 200ms;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--clr-icons-light);
+  border-radius: 30px;
+  background-color: var(--clr-icons-light);
+}
+
+.page-wrapper.dark .dark-mode-switch-circle {
+  top: 50%;
+  transition: 200ms;
+  transform: translate(-15%, -50%);
+  background-color: var(--clr-accent-dark);
+}
+
+.topbar-icon { 
+  color: var(--clr-icons-light);
+  height: 22px;
+  width: 22px;
+}
+
+.page-wrapper.dark .topbar-icon {
+  color: var(--clr-icons-dark);
+}
+
+@media all and (min-width: 550px) {
+  
 }

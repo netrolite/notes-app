@@ -1,7 +1,6 @@
 import React from "react";
 import { nanoid } from "nanoid";
-import { IoTrashOutline } from "react-icons/io5"
-import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
+import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 
 export default function Topbar(props) {
     function toggleDarkMode() {
@@ -62,38 +61,34 @@ export default function Topbar(props) {
 
     return (
         <div className="topbar" role="controls-bar">
-            <div className="desktop">
-                <div className="topbar-left-side">
+            <div id="topbar-create-note-section">
+                <div className="topbar-create-note">   
                     <button 
                         type="button" 
-                        className="topbar-create-note-button"
+                        className="add-note"
                         onClick={createNote}
                     >
                         Create a note
                     </button>
                 </div>
-                
-                <div className="topbar-right-side">
-                    <IoTrashOutline 
-                        className="topbar-icon trash-icon" 
-                        title="Delete note"
-                        onClick={deleteNote}
-                    />
-                    <div 
-                        className="dark-mode"
-                        onClick={toggleDarkMode}
-                        title="Toggle dark theme"
-                    >
-                        <div className="dark-mode-switch">
-                            <div className="dark-mode-switch-circle"></div>
-                        </div>
-                        <div className="dark-mode-label">Dark Mode</div>
+            </div>
+            
+            <div id="topbar-buttons-section">
+                <IoTrashOutline 
+                    className="topbar-icon" 
+                    title="Delete note"
+                    onClick={deleteNote}
+                />
+                <div 
+                    className="dark-mode"
+                    onClick={toggleDarkMode}
+                    title="Toggle dark theme"
+                >
+                    <div className="dark-mode-label">Dark Mode</div>
+                    <div className="dark-mode-switch">
+                        <div className="dark-mode-switch-circle"></div>
                     </div>
                 </div>
-            </div>
-
-            <div className="mobile">
-
             </div>
         </div>
     )
