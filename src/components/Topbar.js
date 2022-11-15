@@ -1,6 +1,8 @@
 import React from "react";
+import NotesList from "./NotesList";
 import { nanoid } from "nanoid";
-import { IoLogOut, IoTrashOutline } from "react-icons/io5"
+import { IoTrashOutline } from "react-icons/io5"
+import { MdArrowBackIos } from "react-icons/md"
 
 export default function Topbar(props) {
     function toggleDarkMode() {
@@ -62,38 +64,62 @@ export default function Topbar(props) {
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop-menu">
-            <div id="topbar-create-note-section">
-                <div className="topbar-create-note">   
-                    <button 
-                        type="button" 
-                        className="topbar-create-note-button"
-                        onClick={createNote}
-                    >
-                        Create a note
-                    </button>
+                <div id="topbar-create-note-section">
+                    <div className="topbar-create-note">   
+                        <button 
+                            type="button" 
+                            className="topbar-create-note-button"
+                            onClick={createNote}
+                        >
+                            Create a note
+                        </button>
+                    </div>
                 </div>
-            </div>
-            
-            <div id="topbar-buttons-section">
-                <IoTrashOutline 
-                    className="topbar-icon" 
-                    title="Delete note"
-                    onClick={deleteNote}
-                />
-                <div 
-                    className="dark-mode"
-                    onClick={toggleDarkMode}
-                    title="Toggle dark theme"
-                >
-                    <div className="dark-mode-label">Dark Mode</div>
-                    <div className="dark-mode-switch">
-                        <div className="dark-mode-switch-circle"></div>
+                
+                <div id="topbar-buttons-section">
+                    <IoTrashOutline 
+                        className="topbar-icon" 
+                        title="Delete note"
+                        onClick={deleteNote}
+                    />
+                    <div 
+                        className="dark-mode"
+                        onClick={toggleDarkMode}
+                        title="Toggle dark theme"
+                    >
+                        <div className="dark-mode-label">Dark Mode</div>
+                        <div className="dark-mode-switch">
+                            <div className="dark-mode-switch-circle"></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            </div>
 
-            
+            <div className="mobile-menu">
+                    <div className="go-back-icon">
+                        <MdArrowBackIos 
+                            className="topbar-icon"
+                        />
+                        Notes
+                    </div>
+                    
+                    
+                    <IoTrashOutline 
+                        className="topbar-icon" 
+                        title="Delete note"
+                        onClick={deleteNote}
+                    />
+
+                    <div className="menu-slider">   
+                            <button 
+                                type="button" 
+                                className="topbar-create-note-button"
+                                onClick={createNote}
+                            >
+                                Create a note
+                            </button>
+                    </div>
+            </div>
         </div>
     )
 }
