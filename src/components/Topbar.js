@@ -114,10 +114,19 @@ export default function Topbar(props) {
                             <button 
                                 type="button" 
                                 className="topbar-create-note-button"
+                                id="slider-create-note-button"
                                 onClick={createNote}
                             >
                                 Create a note
                             </button>
+
+                            <div className="slider-notes-list">
+                                <NotesList
+                                    notes={props.notes}
+                                    currNoteID={props.currNoteID}
+                                    setCurrNoteID={props.setCurrNoteID}
+                                />
+                            </div>
                     </div>
             </div>
         </div>

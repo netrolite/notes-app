@@ -11,11 +11,13 @@ export default function Sidebar(props) {
                 ?
                 <div className="no-notes">No Notes</div>
                 :
-                <NotesList 
-                    notes={props.notes}
-                    currNoteID={props.currNoteID}
-                    setCurrNoteID={props.setCurrNoteID}
-                />
+                <div className="sidebar-notes-list">
+                    <NotesList 
+                        notes={props.notes}
+                        currNoteID={props.currNoteID}
+                        setCurrNoteID={props.setCurrNoteID}
+                    />
+                </div>
             }
         </aside>
     )

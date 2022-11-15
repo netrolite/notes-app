@@ -29,8 +29,8 @@ export default function NotesList(props) {
     })
     
     return (
-        <div className="sidebar-notes-list">
+        <>
             {notesElements}
-        </div>
+        </>
     )
 }
