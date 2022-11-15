@@ -73,16 +73,10 @@ export default function Editor(props) {
     }
 
     return (
-            <div 
+            <textarea 
                 className="editor"
-                contentEditable="true"
                 onChange={updateNote}               
-            >
-                {
-                    props.notes.length 
-                    ? props.notes[currNoteIndex].text 
-                    : ""
-                }
-            </div> 
+                value={props.notes.length ? props.notes[currNoteIndex].text : ""}
+            /> 
     )
 }
