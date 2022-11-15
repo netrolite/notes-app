@@ -140,7 +140,7 @@ body {
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  padding-bottom: 30px;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
 }
@@ -178,12 +178,12 @@ body {
 
 .note:last-child .note-inside {
   border-bottom: none;
-  padding-bottom: 30px;
 }
 
 .note.selected .note-inside,
 .note.above-selected .note-inside {
   border: none;
+  /* 1 additional px of padding to make up for border */
   padding-bottom: 7px;
 }
 
@@ -338,6 +338,8 @@ body {
   color: var(--clr-icons-dark);
 }
 
-@media all and (min-width: 550px) {
-  
+@media all and (max-width: 550px) {
+  .sidebar-notes-list {
+    padding-bottom: 60px;
+  }
 }
