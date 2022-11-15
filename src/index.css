@@ -275,11 +275,13 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 10px;
 }
 
 .dark-mode {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 8px;
   color: var(--clr-icons-light);
@@ -293,12 +295,16 @@ body {
   color: var(--clr-icons-dark);
 }
 
+.dark-mode-label {
+  font-size: 0.8rem;
+}
+
 .dark-mode-switch {
   position: relative;
   padding: 0 2px;
   border: 1px solid var(--clr-icons-light);
   border-radius: 30px;
-  width: 40px;
+  width: 50px;
   height: 26px;
 }
 
@@ -306,7 +312,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-85%, -50%);
+  transform: translate(-110%, -50%);
   transition: 200ms;
   width: 20px;
   height: 20px;
@@ -318,7 +324,7 @@ body {
 .page-wrapper.dark .dark-mode-switch-circle {
   top: 50%;
   transition: 200ms;
-  transform: translate(-15%, -50%);
+  transform: translate(10%, -50%);
   background-color: var(--clr-accent-dark);
 }
 

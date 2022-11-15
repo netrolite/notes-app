@@ -61,35 +61,35 @@ export default function Topbar(props) {
 
     return (
         <div className="topbar" role="controls-bar">
-            <div id="topbar-create-note-section">
-                <div className="topbar-create-note">   
-                    <button 
-                        type="button" 
-                        className="add-note"
-                        onClick={createNote}
-                    >
-                        Create a note
-                    </button>
-                </div>
-            </div>
-            
-            <div id="topbar-buttons-section">
-                <IoTrashOutline 
-                    className="topbar-icon" 
-                    title="Delete note"
-                    onClick={deleteNote}
-                />
-                <div 
-                    className="dark-mode"
-                    onClick={toggleDarkMode}
-                    title="Toggle dark theme"
-                >
-                    <div className="dark-mode-label">Dark Mode</div>
-                    <div className="dark-mode-switch">
-                        <div className="dark-mode-switch-circle"></div>
+                <div id="topbar-create-note-section">
+                    <div className="topbar-create-note">   
+                        <button 
+                            type="button" 
+                            className="add-note"
+                            onClick={createNote}
+                        >
+                            Create a note
+                        </button>
                     </div>
                 </div>
-            </div>
+                
+                <div id="topbar-buttons-section">
+                    <IoTrashOutline 
+                        className="topbar-icon" 
+                        title="Delete note"
+                        onClick={deleteNote}
+                    />
+                    <div 
+                        className="dark-mode"
+                        onClick={toggleDarkMode}
+                        title="Toggle dark theme"
+                    >
+                        <div className="dark-mode-switch">
+                            <div className="dark-mode-switch-circle"></div>
+                        </div>
+                        <div className="dark-mode-label">Dark Mode</div>
+                    </div>
+                </div>
         </div>
     )
 }
