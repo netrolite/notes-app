@@ -309,8 +309,8 @@ body {
   resize: none;
   border: none;
   /* remove textarea rounding */
-  border-radius: none;
-  -webkit-appearance: textarea;
+  border-radius: 0;
+  -webkit-appearance: none;
   appearance: none;
 }
 
