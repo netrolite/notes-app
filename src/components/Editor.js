@@ -72,11 +72,24 @@ export default function Editor(props) {
         }
     }
 
+    let textareaValue = ""
+    if(props.currNoteID === "") {
+        textareaValue = "";
+    } 
+    else if(props.notes.length > 0) {
+        console.log(currNoteIndex);
+        console.log(props.notes[currNoteIndex]);
+        textareaValue = props.notes[currNoteIndex].text;
+    }
+    else {
+        textareaValue = "";
+    }
+
     return (
             <textarea 
                 className="editor"
                 onChange={updateNote}               
-                value={props.notes.length ? props.notes[currNoteIndex].text : ""}
+                value={textareaValue}
             /> 
     )
 }

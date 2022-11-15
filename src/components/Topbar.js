@@ -61,6 +61,27 @@ export default function Topbar(props) {
         }
     }
 
+    // mobile menu (slider) logic
+    window.onload = () => {
+        if(window.innerWidth <= 550) {
+            props.setCurrNoteID("");
+        }
+    }
+
+    window.addEventListener("resize", () => {
+        if(window.innerWidth <= 550) {
+            props.setCurrNoteID("");
+        }
+        // if in desktop mode, set first note as current
+        else if(window.innerWidth > 550) {
+            props.setCurrNoteID(() => {
+                if(props.notes.length > 0) {
+                    return props.notes[0].id
+                }
+            })
+        }
+    })
+
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop-menu">
