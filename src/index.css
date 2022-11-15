@@ -85,45 +85,6 @@ body {
   border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
 
-.topbar-create-note {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr-bg-topbar-light);
-  padding: 15px 10px 15px 10px;
-  border-right: 1px solid var(--clr-bg-topbar-divider-light);
-}
-
-.page-wrapper.dark .topbar-create-note {
-  background-color: var(--clr-bg-topbar-dark);
-  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
-}
-
-.add-note {
-  font-family: inherit;
-  font-weight: 400; 
-  font-size: 1.1rem;
-  color: var(--clr-font-light);
-  background-color: var(--clr-accent-light);
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  width: 100%;
-}
-
-.add-note:hover, .topbar-icon:hover {
-  cursor: pointer;
-}
-
-.page-wrapper.dark .add-note {
-  color: var(--clr-font-dark);
-  background-color: var(--clr-accent-dark);
-}
-
 .no-notes {
   height: 100%;
   display: flex;
@@ -249,7 +210,7 @@ body {
 
 /* TOPBAR */
 
-.topbar {
+.topbar, .desktop-menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -257,6 +218,10 @@ body {
   height: 72px;
   background-color: var(--clr-bg-topbar-light);
   border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
+}
+
+.desktop-menu {
+  display: none;
 }
 
 .page-wrapper.dark .topbar {
@@ -276,6 +241,45 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
+}
+
+.topbar-create-note {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-bg-topbar-light);
+  padding: 15px 10px 15px 10px;
+  border-right: 1px solid var(--clr-bg-topbar-divider-light);
+}
+
+.page-wrapper.dark .topbar-create-note {
+  background-color: var(--clr-bg-topbar-dark);
+  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
+}
+
+.topbar-create-note-button {
+  font-family: inherit;
+  font-weight: 400; 
+  font-size: 1.1rem;
+  color: var(--clr-font-light);
+  background-color: var(--clr-accent-light);
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.topbar-create-note-button:hover, .topbar-icon:hover {
+  cursor: pointer;
+}
+
+.page-wrapper.dark .topbar-create-note-button {
+  color: var(--clr-font-dark);
+  background-color: var(--clr-accent-dark);
 }
 
 .dark-mode {

@@ -61,11 +61,12 @@ export default function Topbar(props) {
 
     return (
         <div className="topbar" role="controls-bar">
+            <div className="desktop-menu">
             <div id="topbar-create-note-section">
                 <div className="topbar-create-note">   
                     <button 
                         type="button" 
-                        className="add-note"
+                        className="topbar-create-note-button"
                         onClick={createNote}
                     >
                         Create a note
@@ -90,6 +91,9 @@ export default function Topbar(props) {
                     </div>
                 </div>
             </div>
+            </div>
+
+            
         </div>
     )
 }
