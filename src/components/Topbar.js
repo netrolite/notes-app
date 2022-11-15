@@ -1,6 +1,7 @@
 import React from "react";
 import { nanoid } from "nanoid";
-import { IoLogOut, IoTrashOutline } from "react-icons/io5"
+import { IoTrashOutline } from "react-icons/io5"
+import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs"
 
 export default function Topbar(props) {
     function toggleDarkMode() {
@@ -61,6 +62,7 @@ export default function Topbar(props) {
 
     return (
         <div className="topbar" role="controls-bar">
+            <div className="desktop">
                 <div id="topbar-create-note-section">
                     <div className="topbar-create-note">   
                         <button 
@@ -75,7 +77,7 @@ export default function Topbar(props) {
                 
                 <div id="topbar-buttons-section">
                     <IoTrashOutline 
-                        className="topbar-icon" 
+                        className="topbar-icon trash-icon" 
                         title="Delete note"
                         onClick={deleteNote}
                     />
@@ -90,6 +92,11 @@ export default function Topbar(props) {
                         <div className="dark-mode-label">Dark Mode</div>
                     </div>
                 </div>
+            </div>
+
+            <div className="mobile">
+
+            </div>
         </div>
     )
 }
