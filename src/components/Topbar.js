@@ -96,38 +96,38 @@ export default function Topbar(props) {
             </div>
 
             <div className="mobile-menu">
-                    <div className="go-back-icon">
-                        <MdArrowBackIos 
-                            className="topbar-icon"
-                        />
-                        Notes
-                    </div>
-                    
-                    
-                    <IoTrashOutline 
-                        className="topbar-icon" 
-                        title="Delete note"
-                        onClick={deleteNote}
+                <div className="go-back-icon">
+                    <MdArrowBackIos 
+                        className="topbar-icon"
                     />
+                    Notes
+                </div>
+                
+                
+                <IoTrashOutline 
+                    className="topbar-icon" 
+                    title="Delete note"
+                    onClick={deleteNote}
+                />
 
-                    <div className="menu-slider">   
-                            <button 
-                                type="button" 
-                                className="topbar-create-note-button"
-                                id="slider-create-note-button"
-                                onClick={createNote}
-                            >
-                                Create a note
-                            </button>
+                <div className="menu-slider">   
+                        <button 
+                            type="button" 
+                            className="topbar-create-note-button"
+                            id="slider-create-note-button"
+                            onClick={createNote}
+                        >
+                            Create a note
+                        </button>
 
-                            <div className="slider-notes-list">
-                                <NotesList
-                                    notes={props.notes}
-                                    currNoteID={props.currNoteID}
-                                    setCurrNoteID={props.setCurrNoteID}
-                                />
-                            </div>
-                    </div>
+                        <div className="slider-notes-list">
+                            <NotesList
+                                notes={props.notes}
+                                currNoteID={props.currNoteID}
+                                setCurrNoteID={props.setCurrNoteID}
+                            />
+                        </div>
+                </div>
             </div>
         </div>
     )
