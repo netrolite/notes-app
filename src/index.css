@@ -44,9 +44,6 @@ body {
 
 .page-wrapper.dark body {
   background-color: var(--clr-bg-editor-dark);
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
 }
 
 .main {
@@ -75,54 +72,12 @@ body {
   border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
 }
 
-#topbar-create-note-section {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  max-width: 265px;
-  width: 100%;
-}
+/* DESKTOP || MOBILE */
+.desktop { display: flex; }
+.mobile { display: none; }
 
-#topbar-buttons-section {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.topbar-icon { 
-  color: var(--clr-icons-light);
-  height: 22px;
-  width: 22px;
-}
-
-.page-wrapper.dark .topbar-icon {
-  color: var(--clr-icons-dark);
-}
-
-.topbar-create-note {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr-bg-topbar-light);
-  padding: 15px 10px 15px 10px;
-  border-right: 1px solid var(--clr-bg-topbar-divider-light);
-}
-
-.page-wrapper.dark .topbar-create-note {
-  background-color: var(--clr-bg-topbar-dark);
-  border-right: 1px solid var(--clr-bg-topbar-divider-dark);
-}
-
-.add-note {
+/* "Create a note" button */
+.topbar-create-note-button {
   font-family: inherit;
   font-weight: 400; 
   font-size: 1.1rem;
@@ -133,15 +88,32 @@ body {
   padding: 10px;
   width: 100%;
 }
-
-.add-note:hover, .topbar-icon:hover {
+.topbar-create-note-button:hover, .topbar-icon:hover {
   cursor: pointer;
 }
-
-.page-wrapper.dark .add-note {
+.page-wrapper.dark .topbar-create-note-button {
   color: var(--clr-font-dark);
   background-color: var(--clr-accent-dark);
-}         
+}
+
+.topbar-right-side {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  padding: 15px 10px 15px 10px;
+}
+
+/* Icons */
+.topbar-icon { 
+  color: var(--clr-icons-light);
+  height: 22px;
+  width: 22px;
+}
+.page-wrapper.dark .topbar-icon {
+  color: var(--clr-icons-dark);
+}
 
 /* DARKMODE SWITCH */
 

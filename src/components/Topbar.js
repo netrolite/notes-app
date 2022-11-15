@@ -63,19 +63,17 @@ export default function Topbar(props) {
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop">
-                <div id="topbar-create-note-section">
-                    <div className="topbar-create-note">   
-                        <button 
-                            type="button" 
-                            className="add-note"
-                            onClick={createNote}
-                        >
-                            Create a note
-                        </button>
-                    </div>
+                <div className="topbar-left-side">
+                    <button 
+                        type="button" 
+                        className="topbar-create-note-button"
+                        onClick={createNote}
+                    >
+                        Create a note
+                    </button>
                 </div>
                 
-                <div id="topbar-buttons-section">
+                <div className="topbar-right-side">
                     <IoTrashOutline 
                         className="topbar-icon trash-icon" 
                         title="Delete note"
