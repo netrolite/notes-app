@@ -95,7 +95,7 @@ body {
 /* "Create a note" button */
 .topbar-create-note-button {
   font-family: inherit;
-  font-weight: 400; 
+  font-weight: 400;
   font-size: 1.1rem;
   color: var(--clr-font-light);
   background-color: var(--clr-accent-light);
@@ -190,12 +190,10 @@ body {
   scrollbar-width: none;
   border-right: 1px solid var(--clr-bg-sidebar-divider-light);
 }
-
 /* removing scrollbars (Safari, Chrome) */
 .sidebar::-webkit-scrollbar {
   display: none;
 }
-
 .page-wrapper.dark .sidebar {
   background-color: var(--clr-bg-sidebar-dark);
   border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
@@ -209,7 +207,6 @@ body {
   align-items: center;
   color: var(--clr-no-notes-light);
 }
-
 .page-wrapper.dark .no-notes {
   color: var(--clr-no-notes-dark);
 }
@@ -305,31 +302,27 @@ body {
 .editor {
   padding: 30px 10px;
   font-size: 1.4rem;
-  font-family: inherit;
-  max-width: 100%;
   width: 100%;
+  font-family: inherit;
   height: calc(100vh - 72px);
   outline: none;
+  resize: none;
   border: none;
   /* remove textarea rounding */
   border-radius: 0;
   -webkit-appearance: none;
   appearance: none;
-  resize: none;
 }
 
-.page-wrapper.dark .editor,
-.page-wrapper.dark .editor-textarea {
+.page-wrapper.dark .editor {
   background-color: var(--clr-bg-editor-dark);
-  color: var(--clr-font-dark);
+  color: var(--clr-font-dark); 
 }
-
-/* TOPBAR */
-
-
 
 @media all and (max-width: 550px) {
   .sidebar-notes-list {
     padding-bottom: 90px;
   }
+
+
 }
