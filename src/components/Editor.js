@@ -50,8 +50,6 @@ export default function Editor(props) {
         textareaValue = "";
     } 
     else if(props.notes.length > 0) {
-        console.log(currNoteIndex);
-        console.log(props.notes[currNoteIndex]);
         textareaValue = props.notes[currNoteIndex].text;
     }
     else {

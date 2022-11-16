@@ -351,10 +351,12 @@ body {
   top: 0;
   left: 0;
   padding: 15px;
+  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
   transition: ease-in-out 400ms;
 }
 .page-wrapper.dark .menu-slider {
   background-color: var(--clr-bg-sidebar-dark);
+  border-right: 1px solid var(--clr-bg-sidebar-divider-dark);
 }
 .menu-slider.out-of-view {
   transform: translate(-100%, 0);

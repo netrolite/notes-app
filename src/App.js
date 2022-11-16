@@ -6,41 +6,34 @@ import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 
 export default function App() {  
-  const [notes, setNotes] = useState(
-    JSON.parse(localStorage.getItem("notes")) || []
-  )
-
-  const [currNoteID, setCurrNoteID] = useState(
-    // if notes[0] exists, set to notes[0]. Otherwise, set an empty string
-    // only runs on initial page load (or reload)!
-    notes[0] && notes[0].id || ""
-  )
-
-  const [prevWindowWidth, setPrevWindowWidth] = useState(window.innerWidth);
-
-  // if on initial page load width <= 550, setCurrNoteID("")
-  window.onload = () => {
-    console.log("loaded");
-    if(window.innerWidth <= 550) {
-      setCurrNoteID("");
-    }
-    else {
-      setCurrNoteID(notes[0] && notes[0].id || "");
-    }
-  }
-
-
-  window.addEventListener("resize", () => {
-    if(prevWindowWidth > 550 && window.innerWidth <= 550) {
-        setCurrNoteID("");
-        setPrevWindowWidth(window.innerWidth);
-    }
-  })
-
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
   );
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  )
+  const [currNoteID, setCurrNoteID] = useState("")
+  let prevWindowWidth = window.innerWidth;
+
+  window.onload = () => {
+    // if in desktop mode on page load, select first note from "notes" or an empty string
+    if(window.innerWidth > 550) {
+      setCurrNoteID(notes[0] && notes[0].id || "");
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    // if going from desktop to mobile 
+    if(prevWindowWidth > 550 && window.innerWidth <= 550) {
+      console.log("went from desktop to mobile");
+    }
+    else if(prevWindowWidth <= 550 && window.innerWidth > 550) {
+      console.log("went from mobile to desktop");
+    }
+
+    prevWindowWidth = window.innerWidth;
+  })
 
   return (
     <div className={"page-wrapper" + (darkMode ? " dark" : "")}>

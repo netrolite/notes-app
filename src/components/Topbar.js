@@ -12,7 +12,10 @@ export default function Topbar(props) {
 
     function createNote() {
         const newID = nanoid();
-        props.setCurrNoteID(newID)
+        // if on desktop, select the newly create note
+        if(window.innerWidth > 550) {
+            props.setCurrNoteID(newID)
+        }
         const newNote = {
             text: ``,
             date: new Date().getTime(),
@@ -79,8 +82,7 @@ export default function Topbar(props) {
         document.querySelector(".selected").classList.remove("selected");
         
         if(document.querySelector(".above-selected")) {
-            document.querySelector(".above-selected")
-            .classList.remove("above-selected");
+            document.querySelector(".above-selected").classList.remove("above-selected");
         };
 
         setTimeout(() => {
@@ -88,7 +90,6 @@ export default function Topbar(props) {
         }, 400);
     }
 
-    console.log(props.currNoteID);
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop-menu">
@@ -121,7 +122,7 @@ export default function Topbar(props) {
                 </div>
             </div>
 
-            {/* hidden if view width > 550px */}
+            {/* mobile menu (hidden if window width > 550px) */}
             <div className="mobile-topbar">
                 <div 
                     className="go-back-icon"
@@ -140,6 +141,7 @@ export default function Topbar(props) {
 
                 <div 
                     className={
+                    // if there's a selected note, hide the slider
                     "menu-slider" + (props.currNoteID ? " out-of-view" : "")
                     }
                 >
