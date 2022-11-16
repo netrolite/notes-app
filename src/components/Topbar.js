@@ -61,27 +61,30 @@ export default function Topbar(props) {
         }
     }
 
-    // mobile menu (slider) logic
-    window.onload = () => {
-        if(window.innerWidth <= 550) {
-            props.setCurrNoteID("");
-        }
+    function deleteNoteMobile() {
+        props.setNotes(notes => {
+            // filters out the curretly selected note
+            notes = notes.filter(note => note.id !== props.currNoteID);
+            // saving filtered notes to localStorage
+            localStorage.setItem("notes", JSON.stringify(notes));
+            return notes;
+        });
+
+        props.setCurrNoteID("");
     }
 
-    window.addEventListener("resize", () => {
-        if(window.innerWidth <= 550) {
-            props.setCurrNoteID("");
-        }
-        // if in desktop mode, set first note as current
-        else if(window.innerWidth > 550) {
-            props.setCurrNoteID(() => {
-                if(props.notes.length > 0) {
-                    return props.notes[0].id
-                }
-            })
-        }
-    })
+    function resetCurrNoteID() {
+        // removing the class first makes it so the user can still see the contents of the note when going back to the list of all notes
+        document.querySelector(".menu-slider").classList.remove("out-of-view");
+        document.querySelector(".selected").classList.remove("selected");
+        document.querySelector(".above-selected").classList.remove("above-selected")
 
+        setTimeout(() => {
+            props.setCurrNoteID("");
+        }, 400);
+    }
+
+    console.log(props.currNoteID);
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop-menu">
@@ -114,8 +117,12 @@ export default function Topbar(props) {
                 </div>
             </div>
 
-            <div className="mobile-menu">
-                <div className="topbar-icon">
+            {/* hidden if view width > 550px */}
+            <div className="mobile-topbar">
+                <div 
+                    className="topbar-icon"
+                    onClick={resetCurrNoteID}
+                >
                     <MdArrowBackIos />
                     Notes
                 </div>
@@ -124,10 +131,14 @@ export default function Topbar(props) {
                 <IoTrashOutline 
                     className="topbar-icon" 
                     title="Delete note"
-                    onClick={deleteNote}
+                    onClick={deleteNoteMobile}
                 />
 
-                <div className="menu-slider">   
+                <div 
+                    className={
+                    "menu-slider" + (props.currNoteID ? " out-of-view" : "")
+                    }
+                >
                         <button 
                             type="button" 
                             className="topbar-create-note-button"

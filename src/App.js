@@ -16,6 +16,14 @@ export default function App() {
     notes[0] && notes[0].id || ""
   )
 
+  const [prevWindowWidth, setPrevWindowWidth] = useState(window.innerWidth);
+
+  window.onload = () => {
+    if(window.innerWidth <= 550) {
+      setCurrNoteID("");
+    }
+  }
+
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false
