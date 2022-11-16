@@ -327,7 +327,6 @@ body {
   height: 22px;
   width: 22px;
 }
-
 .page-wrapper.dark .topbar-icon {
   color: var(--clr-icons-dark);
 }
@@ -337,6 +336,7 @@ body {
 .go-back-icon {
   display: flex;
   align-items: center;
+  gap: 8px;
   color: var(--clr-icons-light);
 }
 .page-wrapper.dark .go-back-icon {
@@ -348,14 +348,14 @@ body {
   flex-direction: column;
   width: 100vw;
   min-height: 100vh;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--clr-bg-light);
   position: fixed;
   top: 0;
   left: 0;
-  padding: 10px;
+  padding: 15px;
 }
 .page-wrapper.dark .menu-slider {
-  background-color: var(--clr-bg-topbar-dark);
+  background-color: var(--clr-bg-sidebar-dark);
 }
 
 .slider-notes-list {

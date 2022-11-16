@@ -115,10 +115,8 @@ export default function Topbar(props) {
             </div>
 
             <div className="mobile-menu">
-                <div className="go-back-icon">
-                    <MdArrowBackIos 
-                        className="topbar-icon"
-                    />
+                <div className="topbar-icon">
+                    <MdArrowBackIos />
                     Notes
                 </div>
                 
