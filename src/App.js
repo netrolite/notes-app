@@ -27,7 +27,6 @@ export default function App() {
     // if going from mobile to desktop
     if(prevWindowWidth <= 550 && window.innerWidth > 550) {
       if(currNoteID.length === 0) {
-        console.log("no selected note", currNoteID);
         setCurrNoteID(notes[0] && notes[0].id || "");
       }
       else {

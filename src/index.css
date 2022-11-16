@@ -69,10 +69,10 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
   /* removing scrollbars (IE 10+, Firefox) */
   -ms-overflow-style: none;
   scrollbar-width: none;
-  border-right: 1px solid var(--clr-bg-sidebar-divider-light);
 }
 
 /* removing scrollbars (Safari, Chrome) */
@@ -366,6 +366,15 @@ body {
 .slider-notes-list {
   margin-top: 20px;
   height: calc(100vh - 76px);
+  overflow: auto;
+  padding-bottom: 20px;
+  /* Removing scrollbar */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slider-notes-list::-webkit-scrollbar {
+  display: none;
 }
 
 @media all and (max-width: 550px) {
