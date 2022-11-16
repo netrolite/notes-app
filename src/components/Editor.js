@@ -45,11 +45,7 @@ export default function Editor(props) {
         }
     }
 
-    document.addEventListener('scroll', (e) => {
-        if (scrollLock && document.documentElement.scrollTop > 100) {
-            document.documentElement.scrollTop = 100;
-        }
-    });
+    function scrollToTop() { window.scrollTo(0, 0); }
 
     let textareaValue = ""
 
@@ -65,7 +61,8 @@ export default function Editor(props) {
     return (
         <textarea 
             className="editor"
-            onChange={updateNote}        
+            onChange={updateNote} 
+            onClick={scrollToTop}          
             value={textareaValue}
         /> 
     )
