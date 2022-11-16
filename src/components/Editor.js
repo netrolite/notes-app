@@ -45,9 +45,6 @@ export default function Editor(props) {
         }
     }
 
-    console.log(props.currNoteID);
-    console.log(currNoteIndex);
-
     let textareaValue = ""
 
     if(props.notes.length > 0) {

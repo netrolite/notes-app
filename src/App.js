@@ -14,25 +14,26 @@ export default function App() {
     JSON.parse(localStorage.getItem("notes")) || []
   )
   const [currNoteID, setCurrNoteID] = useState("")
-  let prevWindowWidth = window.innerWidth;
-
+  
   window.onload = () => {
     // if in desktop mode on page load, select first note from "notes" or an empty string
     if(window.innerWidth > 550) {
       setCurrNoteID(notes[0] && notes[0].id || "");
     }
   }
-
+  
+  let prevWindowWidth = window.innerWidth;
   window.addEventListener("resize", () => {
-    // if going from desktop to mobile 
-    if(prevWindowWidth > 550 && window.innerWidth <= 550) {
-
-    }
     // if going from mobile to desktop
-    else if(prevWindowWidth <= 550 && window.innerWidth > 550) {
-      if(!currNoteID) {
-        console.log("hi");
+    if(prevWindowWidth <= 550 && window.innerWidth > 550) {
+      if(currNoteID.length === 0) {
+        console.log("no selected note", currNoteID);
         setCurrNoteID(notes[0] && notes[0].id || "");
+      }
+      else {
+        // it didn't work the other way
+        const prevID = currNoteID
+        setCurrNoteID(prevID);
       }
     }
 
