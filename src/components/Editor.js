@@ -45,6 +45,8 @@ export default function Editor(props) {
         }
     }
 
+    function scrollToTop() { window.scrollTo(0, 0); }
+
     let textareaValue = ""
 
     if(props.notes.length > 0) {
@@ -59,7 +61,8 @@ export default function Editor(props) {
     return (
         <textarea 
             className="editor"
-            onChange={updateNote}               
+            onChange={updateNote} 
+            onClick={scrollToTop}          
             value={textareaValue}
         /> 
     )
