@@ -18,11 +18,24 @@ export default function App() {
 
   const [prevWindowWidth, setPrevWindowWidth] = useState(window.innerWidth);
 
+  // if on initial page load width <= 550, setCurrNoteID("")
   window.onload = () => {
+    console.log("loaded");
     if(window.innerWidth <= 550) {
       setCurrNoteID("");
     }
+    else {
+      setCurrNoteID(notes[0] && notes[0].id || "");
+    }
   }
+
+
+  window.addEventListener("resize", () => {
+    if(prevWindowWidth > 550 && window.innerWidth <= 550) {
+        setCurrNoteID("");
+        setPrevWindowWidth(window.innerWidth);
+    }
+  })
 
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage

@@ -335,7 +335,6 @@ body {
 .go-back-icon {
   display: flex;
   align-items: center;
-  gap: 8px;
   color: var(--clr-icons-light);
 }
 .page-wrapper.dark .go-back-icon {

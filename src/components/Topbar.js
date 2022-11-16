@@ -77,7 +77,11 @@ export default function Topbar(props) {
         // removing the class first makes it so the user can still see the contents of the note when going back to the list of all notes
         document.querySelector(".menu-slider").classList.remove("out-of-view");
         document.querySelector(".selected").classList.remove("selected");
-        document.querySelector(".above-selected").classList.remove("above-selected")
+        
+        if(document.querySelector(".above-selected")) {
+            document.querySelector(".above-selected")
+            .classList.remove("above-selected");
+        };
 
         setTimeout(() => {
             props.setCurrNoteID("");
@@ -120,10 +124,10 @@ export default function Topbar(props) {
             {/* hidden if view width > 550px */}
             <div className="mobile-topbar">
                 <div 
-                    className="topbar-icon"
+                    className="go-back-icon"
                     onClick={resetCurrNoteID}
                 >
-                    <MdArrowBackIos />
+                    <MdArrowBackIos /> 
                     Notes
                 </div>
                 
