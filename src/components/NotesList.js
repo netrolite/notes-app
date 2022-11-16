@@ -29,6 +29,15 @@ export default function NotesList(props) {
     })
     
     return (
-        <>{notesElements}</>
+        <>
+            {
+                (notesElements.length > 0) 
+                ?
+                notesElements
+                :
+                <div className="no-notes">No Notes</div>
+                
+            }
+        </>
     )
 }

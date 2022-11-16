@@ -26,10 +26,13 @@ export default function App() {
   window.addEventListener("resize", () => {
     // if going from desktop to mobile 
     if(prevWindowWidth > 550 && window.innerWidth <= 550) {
-      console.log("went from desktop to mobile");
+
     }
+    // if going from mobile to desktop
     else if(prevWindowWidth <= 550 && window.innerWidth > 550) {
-      console.log("went from mobile to desktop");
+      if(!currNoteID) {
+        setCurrNoteID(notes[0] && notes[0].id || "");
+      }
     }
 
     prevWindowWidth = window.innerWidth;

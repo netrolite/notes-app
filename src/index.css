@@ -365,6 +365,7 @@ body {
 
 .slider-notes-list {
   margin-top: 20px;
+  height: calc(100vh - 76px);
 }
 
 @media all and (max-width: 550px) {
