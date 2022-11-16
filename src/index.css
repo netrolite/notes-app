@@ -210,7 +210,7 @@ body {
 
 /* TOPBAR */
 
-.topbar, .desktop-menu, .mobile-menu {
+.desktop-menu, .mobile-menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -219,48 +219,41 @@ body {
   background-color: var(--clr-bg-topbar-light);
   border-bottom: 1px solid var(--clr-bg-topbar-divider-light);
 }
+.page-wrapper.dark .desktop-menu,
+.page-wrapper.dark .mobile-menu {
+  background-color: var(--clr-bg-topbar-dark);
+  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
+}
 .mobile-menu { 
   display: none; 
   padding: 0 10px;
 }
 
-/* DESKTOP */
-
-.page-wrapper.dark .topbar {
-  background-color: var(--clr-bg-topbar-dark);
-  border-bottom: 1px solid var(--clr-bg-topbar-divider-dark);
-}
+/* DESKTOP VERSION*/
 
 #topbar-create-note-section {
   display: flex;
   justify-content: space-between;
   max-width: 265px;
   width: 100%;
-}
-
-#topbar-buttons-section {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-}
-
-.topbar-create-note {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--clr-bg-topbar-light);
   padding: 15px 10px 15px 10px;
   border-right: 1px solid var(--clr-bg-topbar-divider-light);
 }
-
-.page-wrapper.dark .topbar-create-note {
-  background-color: var(--clr-bg-topbar-dark);
+.page-wrapper.dark #topbar-create-note-section {
   border-right: 1px solid var(--clr-bg-topbar-divider-dark);
+}
+
+#topbar-buttons-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  padding: 15px 10px 15px 10px;
 }
 
 .topbar-create-note-button {
@@ -274,15 +267,16 @@ body {
   padding: 10px;
   width: 100%;
 }
+.page-wrapper.dark .topbar-create-note-button {
+  color: var(--clr-font-dark);
+  background-color: var(--clr-accent-dark);
+}
 
 .topbar-create-note-button:hover, .topbar-icon:hover {
   cursor: pointer;
 }
 
-.page-wrapper.dark .topbar-create-note-button {
-  color: var(--clr-font-dark);
-  background-color: var(--clr-accent-dark);
-}
+/* DARK MODE SWITCH */
 
 .dark-mode {
   display: flex;

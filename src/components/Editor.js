@@ -45,33 +45,6 @@ export default function Editor(props) {
         }
     }
 
-    function deleteNote() {
-        props.setNotes(notes => {
-            // filters out the curretly selected note
-            notes = notes.filter(note => note.id !== props.currNoteID);
-            // saving filtered notes to localStorage
-            localStorage.setItem("notes", JSON.stringify(notes));
-            return notes;
-        });
-
-        // if next note in the array exists, use it as current
-        if(props.notes[currNoteIndex + 1]) {
-            props.setCurrNoteID(() => {
-                return props.notes[currNoteIndex + 1].id
-            });
-        }
-        // if previous note in the array exists, use it as current
-        else if(props.notes[currNoteIndex - 1]) {
-            props.setCurrNoteID(() => {
-                return props.notes[currNoteIndex - 1].id
-            });
-        }
-        // if the array is empty
-        else {
-            props.setCurrNoteID("");
-        }
-    }
-
     let textareaValue = ""
     if(props.currNoteID === "") {
         textareaValue = "";
@@ -86,10 +59,10 @@ export default function Editor(props) {
     }
 
     return (
-            <textarea 
-                className="editor"
-                onChange={updateNote}               
-                value={textareaValue}
-            /> 
+        <textarea 
+            className="editor"
+            onChange={updateNote}               
+            value={textareaValue}
+        /> 
     )
 }
