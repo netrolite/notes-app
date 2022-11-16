@@ -31,6 +31,7 @@ export default function App() {
     // if going from mobile to desktop
     else if(prevWindowWidth <= 550 && window.innerWidth > 550) {
       if(!currNoteID) {
+        console.log("hi");
         setCurrNoteID(notes[0] && notes[0].id || "");
       }
     }

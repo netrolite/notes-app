@@ -36,7 +36,6 @@ export default function NotesList(props) {
                 notesElements
                 :
                 <div className="no-notes">No Notes</div>
-                
             }
         </>
     )

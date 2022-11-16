@@ -45,12 +45,15 @@ export default function Editor(props) {
         }
     }
 
+    console.log(props.currNoteID);
+    console.log(currNoteIndex);
+
     let textareaValue = ""
-    if(props.currNoteID === "") {
-        textareaValue = "";
-    } 
-    else if(props.notes.length > 0) {
-        textareaValue = props.notes[currNoteIndex].text;
+
+    if(props.notes.length > 0) {
+        if(currNoteIndex > -1) {
+            textareaValue = props.notes[currNoteIndex].text;
+        }
     }
     else {
         textareaValue = "";
