@@ -9,7 +9,8 @@ export default function Editor(props) {
     )
 
     // runs when user updates text inside "editor"
-    function updateNote() {
+    function updateNote(e) {
+        console.log(e.target.innerText);
         // if there are no notes
         if(props.notes.length === 0) {
             const newID = nanoid();
@@ -17,7 +18,7 @@ export default function Editor(props) {
             // add new note to "notes" state
             props.setNotes(() => {
                 return [{
-                    text: document.querySelector(".editor").value,
+                    text: e.target.innerText,
                     id: newID,
                     date: new Date().getTime()
                 }]
@@ -31,7 +32,7 @@ export default function Editor(props) {
             const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
             // updated currently selected note
             const updatedNote = props.notes[currNoteIndex];
-            updatedNote.text = document.querySelector(".editor").value;
+            updatedNote.text = e.target.innerText;
             // adding 1 second to make timer restart on 0, rather than 1
             updatedNote.date = new Date().getTime() + 1000;
 
@@ -49,22 +50,24 @@ export default function Editor(props) {
         document.documentElement.scrollTo(0, 0);
     })
 
-    let textareaValue = ""
+    let editorValue = ""
 
     if(props.notes.length > 0) {
         if(currNoteIndex > -1) {
-            textareaValue = props.notes[currNoteIndex].text;
+            editorValue = props.notes[currNoteIndex].text;
         }
     }
     else {
-        textareaValue = "";
+        editorValue = "";
     }
 
     return (
-        <textarea 
+        <div 
             className="editor"
-            onChange={updateNote} 
-            value={textareaValue}
-        /> 
+            onInput={e => updateNote(e)} 
+            contentEditable="true"
+        >
+            {editorValue}
+        </div> 
     )
 }
