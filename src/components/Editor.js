@@ -16,12 +16,9 @@ export default function Editor(props) {
     }, [props.currNoteID])
 
     useEffect(() => {
-        console.log(selection.current);
         const editor = document.querySelector(".editor");
-
-        if(editor.textContent.length === 1) {
-            setEndOfContenteditable(editor);
-        }
+        
+        
     }, [props.notes])
 
     // select an element and move cursor to the end of it
@@ -73,6 +70,17 @@ export default function Editor(props) {
         // move cursor to previous position (by default when you type in contentEditable element, the cursor moves to the start of it because the input is controlled and it re-renders the component on every keystroke)
 
         // update selection
+        
+        const editor = document.querySelector(".editor");
+
+        let range = document.createRange();
+        range.selectNodeContents(editor);
+
+        let sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        
+        console.log(selection.current);
         selection.current = window.getSelection();
     }
 
