@@ -21,10 +21,9 @@ export default function Editor(props) {
 
         if(editor.textContent.length === 1) {
             setEndOfContenteditable(editor);
-            console.log("ran");
         }
     }, [props.notes])
-    
+
     // select an element and move cursor to the end of it
     function setEndOfContenteditable(contentEditableElement) {
         let range = document.createRange(); // Create a range (a range is a like the selection but invisible)
