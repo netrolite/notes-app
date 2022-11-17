@@ -22,6 +22,10 @@ export default function App() {
     if(window.innerWidth > 550) {
       setCurrNoteID(notes[0] && notes[0].id || "");
     }
+
+    // set cursor to the end of editor
+    const editor = document.querySelector(".editor");
+    editor.focus();
   }
   
   let prevWindowWidth = window.innerWidth;
