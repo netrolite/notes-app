@@ -16,16 +16,26 @@ export default function App() {
     JSON.parse(localStorage.getItem("notes")) || []
   )
   const [currNoteID, setCurrNoteID] = useState("")
+
+  function setCaretToEnd(target /* HTMLDivElement */ ) {
+    const range = document.createRange();
+    const sel = window.getSelection();
+    range.selectNodeContents(target);
+    range.collapse(false);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    target.focus();
+    range.detach(); // optimization
+  
+    // set scroll to the end if multiline
+    target.scrollTop = target.scrollHeight; 
+  }
   
   window.onload = () => {
     // if in desktop mode on page load, select first note from "notes" or an empty string
     if(window.innerWidth > 550) {
       setCurrNoteID(notes[0] && notes[0].id || "");
     }
-
-    // set cursor to the end of editor
-    const editor = document.querySelector(".editor");
-    editor.focus();
   }
   
   let prevWindowWidth = window.innerWidth;

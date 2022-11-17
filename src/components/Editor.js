@@ -10,12 +10,19 @@ export default function Editor(props) {
     // for updating cursor position when typing in the editor (which is a contentEditable element)
     const selection = useRef(window.getSelection());
 
-    // focus on editor on page load & move caret to the end of it
+    // focus on editor & move cursor to the end of it
     useEffect(() => {
-        const editor = document.querySelector(".editor");
-        editor.focus();
+        setEndOfContenteditable(document.querySelector(".editor"));
     }, [props.currNoteID])
 
+    function setEndOfContenteditable(contentEditableElement) {
+        let range = document.createRange(); //Create a range (a range is a like the selection but invisible)
+        range.selectNodeContents(contentEditableElement); //Select the entire contents of the element with the range
+        range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
+        let selection = window.getSelection(); //get the selection object (allows you to change selection)
+        selection.removeAllRanges(); //remove any selections already made
+        selection.addRange(range); //make the range you have just created the visible selection
+    }
         
 
     // runs when user updates text inside "editor"
