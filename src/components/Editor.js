@@ -15,15 +15,25 @@ export default function Editor(props) {
         setEndOfContenteditable(document.querySelector(".editor"));
     }, [props.currNoteID])
 
+    useEffect(() => {
+        console.log(selection.current);
+        const editor = document.querySelector(".editor");
+
+        if(editor.textContent.length === 1) {
+            setEndOfContenteditable(editor);
+            console.log("ran");
+        }
+    }, [props.notes])
+    
+    // select an element and move cursor to the end of it
     function setEndOfContenteditable(contentEditableElement) {
-        let range = document.createRange(); //Create a range (a range is a like the selection but invisible)
-        range.selectNodeContents(contentEditableElement); //Select the entire contents of the element with the range
-        range.collapse(false); //collapse the range to the end point. false means collapse to end rather than the start
-        let selection = window.getSelection(); //get the selection object (allows you to change selection)
-        selection.removeAllRanges(); //remove any selections already made
-        selection.addRange(range); //make the range you have just created the visible selection
+        let range = document.createRange(); // Create a range (a range is a like the selection but invisible)
+        range.selectNodeContents(contentEditableElement); // Select the entire contents of the element with the range
+        range.collapse(false); // collapse the range to the end point. false means collapse to end rather than the start
+        let selection = window.getSelection(); // get the selection object (allows you to change selection)
+        selection.removeAllRanges(); // remove any selections already made
+        selection.addRange(range); // make the range you have just created the visible selection
     }
-        
 
     // runs when user updates text inside "editor"
     function updateNote(e) {
