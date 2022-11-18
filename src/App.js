@@ -38,7 +38,6 @@ export default function App() {
       }
     }
 
-    // update prevWindowWidth
     prevWindowWidth = window.innerWidth;
   })
 
