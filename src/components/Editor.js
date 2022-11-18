@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { IoLogOut, IoTrashOutline } from "react-icons/io5"
 
 export default function Editor(props) { 
@@ -7,17 +7,9 @@ export default function Editor(props) {
     const currNoteIndex = props.notes.indexOf(
         props.notes.find(item => item.id === props.currNoteID)
     )
-    const [selection, setSelection] = useState(window.getSelection());
-    const newSelection = useRef(selection);
-    console.log(newSelection.current);
-    
-    useEffect(() => {
-        console.log(newSelection.current);
-    }, [props.notes])
-    
 
     // runs when user updates text inside "editor"
-    function updateNote(e) {
+    function updateNote() {
         // if there are no notes
         if(props.notes.length === 0) {
             const newID = nanoid();
@@ -25,7 +17,7 @@ export default function Editor(props) {
             // add new note to "notes" state
             props.setNotes(() => {
                 return [{
-                    text: e.target.textContent,
+                    text: document.querySelector(".editor").value,
                     id: newID,
                     date: new Date().getTime()
                 }]
@@ -39,7 +31,7 @@ export default function Editor(props) {
             const unchangedNotes = props.notes.filter(item => item.id !== props.currNoteID);
             // updated currently selected note
             const updatedNote = props.notes[currNoteIndex];
-            updatedNote.text = e.target.textContent;
+            updatedNote.text = document.querySelector(".editor").value;
             // adding 1 second to make timer restart on 0, rather than 1
             updatedNote.date = new Date().getTime() + 1000;
 
@@ -51,32 +43,28 @@ export default function Editor(props) {
                 JSON.stringify([updatedNote, ...unchangedNotes])
             )
         }
-
-        setSelection(window.getSelection());
     }
 
     document.addEventListener("scroll", () => {
         document.documentElement.scrollTo(0, 0);
     })
 
-    let editorValue = ""
+    let textareaValue = ""
+
     if(props.notes.length > 0) {
         if(currNoteIndex > -1) {
-            editorValue = props.notes[currNoteIndex].text;
+            textareaValue = props.notes[currNoteIndex].text;
         }
     }
     else {
-        editorValue = "";
+        textareaValue = "";
     }
 
     return (
-        <div 
+        <textarea 
             className="editor"
-            onInput={e => updateNote(e)}
-            contentEditable="true"
-            suppressContentEditableWarning="true"
-        >
-            {editorValue}
-        </div> 
+            onChange={updateNote} 
+            value={textareaValue}
+        /> 
     )
 }

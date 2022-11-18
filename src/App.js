@@ -17,12 +17,12 @@ export default function App() {
   )
   const [currNoteID, setCurrNoteID] = useState("")
   
-  useEffect(() => {
+  window.onload = () => {
     // if in desktop mode on page load, select first note from "notes" or an empty string
     if(window.innerWidth > 550) {
       setCurrNoteID(notes[0] && notes[0].id || "");
     }
-  }, [])
+  }
   
   let prevWindowWidth = window.innerWidth;
   window.addEventListener("resize", () => {

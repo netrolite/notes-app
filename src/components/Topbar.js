@@ -1,8 +1,8 @@
 import React from "react";
+import NotesList from "./NotesList";
 import { nanoid } from "nanoid";
 import { IoTrashOutline } from "react-icons/io5"
 import { MdArrowBackIos } from "react-icons/md"
-import Note from "./Note";
 
 export default function Topbar(props) {
     function toggleDarkMode() {
@@ -90,30 +90,6 @@ export default function Topbar(props) {
         }, 400);
     }
 
-    const notesElements = props.notes.map((note, index, array) => {
-        let isAboveSelected = false;
-        // if the next note exists, and if that note's id matches currNoteID.id,
-        // then isAboveSelected = true
-        if(array[index + 1] && array[index + 1].id === props.currNoteID) {
-            isAboveSelected = true;
-        }
-        return (
-            <Note
-                text={note.text}
-                date={note.date}
-                currNoteID={props.currNoteID}
-                selectNote={selectNote}
-                isAboveSelected={isAboveSelected}
-                id={note.id}
-                key={note.id}
-            />
-        )
-    })
-
-    function selectNote(ev, id) {
-        props.setCurrNoteID(id)
-    }
-
     return (
         <div className="topbar" role="controls-bar">
             <div className="desktop-menu">
@@ -179,13 +155,11 @@ export default function Topbar(props) {
                         </button>
 
                         <div className="slider-notes-list">
-                            {
-                                notesElements.length > 0
-                                ?
-                                notesElements
-                                :
-                                <div className="no-notes">No Notes</div>
-                            }
+                            <NotesList
+                                notes={props.notes}
+                                currNoteID={props.currNoteID}
+                                setCurrNoteID={props.setCurrNoteID}
+                            />
                         </div>
                 </div>
             </div>
