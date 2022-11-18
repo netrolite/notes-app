@@ -1,10 +1,14 @@
-import React, { useEffect, useMemo, useState ,useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Note(props) {
-    // first line of "props.text"
-    const title = props.text.split(/\n/)[0] || "New Note";
-    // second line of "props.text"
-    const textSnippet = props.text.split(/\n/)[1] || "No Additional Text";
+    let text = props.text.trim().split(/\n/);
+
+    text = text.filter(item => item.trim() !== "");
+    console.log(text);
+
+
+    let title = text[0] || "New Note";
+    let textSnippet = text[1] || "No Additional Text";
 
     const [formattedDate, setFormattedDate] = useState(
         timeElapsed(props.date) + " ago"

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
+import React from "react";
 import NotesList from "./NotesList";
 
 export default function Sidebar(props) {

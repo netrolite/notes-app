@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { nanoid } from "nanoid"
+import React, { useState } from "react";
 import "./index.css"
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar"

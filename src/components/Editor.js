@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
-import React, { useState, useEffect } from "react";
-import { IoLogOut, IoTrashOutline } from "react-icons/io5"
+import React from "react";
 
 export default function Editor(props) { 
     // index of currently selected note

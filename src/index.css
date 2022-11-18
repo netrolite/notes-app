@@ -345,7 +345,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100.5vh;
+  min-height: 100vh;
   background-color: var(--clr-bg-light);
   position: fixed;
   top: 0;
@@ -367,7 +367,7 @@ body {
   margin-top: 20px;
   height: calc(100vh - 76px);
   overflow: auto;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   /* Removing scrollbar */
   -ms-overflow-style: none;
   scrollbar-width: none;

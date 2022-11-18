@@ -91,7 +91,7 @@ export default function Topbar(props) {
     }
 
     return (
-        <div className="topbar" role="controls-bar">
+        <div className="topbar">
             <div className="desktop-menu">
                 <div id="topbar-create-note-section">   
                     <button 
