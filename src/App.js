@@ -18,10 +18,12 @@ export default function App() {
   const currNoteID = useRef("")
   console.log(currNoteID.current);
   
-  // if in desktop mode on page load, select first note from "notes" or an empty string
-  if(window.innerWidth > 550) {
-    currNoteID.current = (notes[0] && notes[0].id || "");
-  }
+  useEffect(() => {
+    // if in desktop mode on page load, select first note from "notes" or an empty string
+    if(window.innerWidth > 550) {
+      setCurrNoteID(notes[0] && notes[0].id || "");
+    }
+  }, [])
   
   let prevWindowWidth = window.innerWidth;
   window.addEventListener("resize", () => {
@@ -37,6 +39,7 @@ export default function App() {
       }
     }
 
+    // update prevWindowWidth
     prevWindowWidth = window.innerWidth;
   })
 

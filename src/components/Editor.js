@@ -14,6 +14,22 @@ export default function Editor(props) {
         range.selectNodeContents(editor);
         range.collapse(false);
 
+            // add new note to "notes" state
+            props.setNotes(() => {
+                return [{
+                    text: e.target.innerText,
+                    id: newID,
+                    date: new Date().getTime()
+                }]
+            })
+    })
+
+    useEffect(() => {
+        const editor = document.querySelector(".editor");
+        const range = document.createRange();
+        range.selectNodeContents(editor);
+        range.collapse(false);
+
         const sel = window.getSelection();
         sel.removeAllRanges();
         sel.addRange(range);
@@ -34,7 +50,7 @@ export default function Editor(props) {
     }
 
     return (
-        <div
+        <div 
             className="editor"
 
             contentEditable="true"

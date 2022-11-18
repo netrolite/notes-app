@@ -1,7 +1,8 @@
-import React, { useEffect, useMemo, useState ,useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Note(props) {
     // first line of "props.text"
+    console.log(props.text);
     const title = props.text.split(/\n/)[0] || "New Note";
     // second line of "props.text"
     const textSnippet = props.text.split(/\n/)[1] || "No Additional Text";
