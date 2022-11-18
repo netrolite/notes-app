@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 export default function Note(props) {
+    // trim and split text on every newline character
     let text = props.text.trim().split(/\n/);
-
+    // remove all empty lines or lines only filled with spaces
     text = text.filter(item => item.trim() !== "");
-    console.log(text);
-
 
     let title = text[0] || "New Note";
-    let textSnippet = text[1] || "No Additional Text";
+    let subtitle = text[1] || "No Additional Text";
 
     const [formattedDate, setFormattedDate] = useState(
         timeElapsed(props.date) + " ago"
@@ -67,15 +66,9 @@ export default function Note(props) {
             key={props.id}
         >
             <div className="note-inside">
-                <div className="note-title">
-                    {title}
-                </div>
-                <div className="note-subtitle">
-                    <div className="note-date">{formattedDate}</div>
-                    <div className="note-snippet">
-                        {textSnippet}
-                    </div>
-                </div>
+                <div className="note-title">{title}</div>
+                <div className="note-date">{formattedDate}</div>
+                <div className="note-snippet">{subtitle}</div>
             </div>
         </div>
     )
