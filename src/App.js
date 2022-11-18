@@ -6,8 +6,6 @@ import Sidebar from "./components/Sidebar"
 import Editor from "./components/Editor"
 
 export default function App() {  
-  window.scrollTo(0, 0);
-
   const [darkMode, setDarkMode] = useState(
     // get current darkMode value from localStorage
     JSON.parse(localStorage.getItem("darkMode")) || false

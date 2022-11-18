@@ -345,7 +345,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100.5vh;
   background-color: var(--clr-bg-light);
   position: fixed;
   top: 0;
