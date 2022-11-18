@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState ,useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Note(props) {
     // first line of "props.text"
