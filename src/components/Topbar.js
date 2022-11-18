@@ -14,7 +14,7 @@ export default function Topbar(props) {
         const newID = nanoid();
         // if on desktop, select the newly create note
         if(window.innerWidth > 550) {
-            props.setCurrNoteID(newID)
+            props.currNoteID.current = newID
         }
         const newNote = {
             text: ``,
@@ -35,12 +35,12 @@ export default function Topbar(props) {
 
     function deleteNote() {
         const currNoteIndex = props.notes.indexOf(
-            props.notes.find(item => item.id === props.currNoteID)
+            props.notes.find(item => item.id === props.currNoteID.current)
         );
 
         props.setNotes(notes => {
             // filters out the curretly selected note
-            notes = notes.filter(note => note.id !== props.currNoteID);
+            notes = notes.filter(note => note.id !== props.currNoteID.current);
             // saving filtered notes to localStorage
             localStorage.setItem("notes", JSON.stringify(notes));
             return notes;
@@ -48,32 +48,28 @@ export default function Topbar(props) {
 
         // if next note in the array exists, use it as current
         if(props.notes[currNoteIndex + 1]) {
-            props.setCurrNoteID(() => {
-                return props.notes[currNoteIndex + 1].id
-            });
+            props.currNoteID.current = props.notes[currNoteIndex + 1].id
         }
         // if previous note in the array exists, use it as current
         else if(props.notes[currNoteIndex - 1]) {
-            props.setCurrNoteID(() => {
-                return props.notes[currNoteIndex - 1].id
-            });
+            props.currNoteID.current = props.notes[currNoteIndex - 1].id
         }
         // if the array is empty
         else {
-            props.setCurrNoteID("");
+            props.currNoteID.current = "";
         }
     }
 
     function deleteNoteMobile() {
         props.setNotes(notes => {
             // filters out the curretly selected note
-            notes = notes.filter(note => note.id !== props.currNoteID);
+            notes = notes.filter(note => note.id !== props.currNoteID.current);
             // saving filtered notes to localStorage
             localStorage.setItem("notes", JSON.stringify(notes));
             return notes;
         });
 
-        props.setCurrNoteID("");
+        props.currNoteID.current = ""
     }
 
     function resetCurrNoteID() {
@@ -86,7 +82,7 @@ export default function Topbar(props) {
         };
 
         setTimeout(() => {
-            props.setCurrNoteID("");
+            props.currNoteID.current = ""
         }, 400);
     }
 
@@ -158,7 +154,6 @@ export default function Topbar(props) {
                             <NotesList
                                 notes={props.notes}
                                 currNoteID={props.currNoteID}
-                                setCurrNoteID={props.setCurrNoteID}
                             />
                         </div>
                 </div>

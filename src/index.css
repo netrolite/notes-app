@@ -189,16 +189,12 @@ body {
   padding: 30px 10px;
   font-size: 1.4rem;
   font-family: inherit;
+  overflow-wrap: break-word;
+  display: inline-block;
   max-width: 100%;
   width: 100%;
   height: calc(100vh - 72px);
   outline: none;
-  border: none;
-  /* remove textarea rounding */
-  border-radius: 0;
-  -webkit-appearance: none;
-  appearance: none;
-  resize: none;
 }
 
 .page-wrapper.dark .editor,

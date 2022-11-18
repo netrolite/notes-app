@@ -4,7 +4,8 @@ import Note from "./Note"
 export default function NotesList(props) {
     // sets currNoteID to id of note that the user clicked on
     function selectNote(ev, id) {
-        props.setCurrNoteID(id)
+        console.log(props.currNoteID.current);
+        props.currNoteID.current = id
     }
 
     // elements to be displayed on the page

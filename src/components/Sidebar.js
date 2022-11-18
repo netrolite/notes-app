@@ -10,7 +10,6 @@ export default function Sidebar(props) {
                     <NotesList 
                         notes={props.notes}
                         currNoteID={props.currNoteID}
-                        setCurrNoteID={props.setCurrNoteID}
                     />
                 </div>
             }
