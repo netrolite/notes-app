@@ -6,7 +6,9 @@
   --clr-note-meta-selected-light: rgb(107, 95, 62);
   --clr-note-meta-selected-dark: rgb(224, 209, 171);
   --clr-icons-light: rgb(107, 107, 107);
+  --clr-icons-bg-light-hover: rgb(212, 212, 212);
   --clr-icons-dark: rgb(151, 150, 153);
+  --clr-icons-bg-dark-hover: rgb(31, 26, 36);
   --clr-accent-light: rgb(255, 215, 105);
   --clr-accent-light-dimmed: rgb(215, 215, 215);
   --clr-accent-dark: rgb(168, 132, 41);
@@ -271,8 +273,27 @@ body {
   background-color: var(--clr-accent-dark);
 }
 
+.topbar-icon { 
+  color: var(--clr-icons-light);
+  height: 30px;
+  width: 30px;
+  padding: 4px;
+  border-radius: 3px;
+}
+.page-wrapper.dark .topbar-icon {
+  color: var(--clr-icons-dark);
+}
+
 .topbar-create-note-button:hover, .topbar-icon:hover {
   cursor: pointer;
+}
+
+.topbar-icon:hover {
+  background-color: var(--clr-icons-bg-light-hover);
+}
+
+.page-wrapper.dark .topbar-icon:hover {
+  background-color: var(--clr-icons-bg-dark-hover);
 }
 
 /* DARK MODE SWITCH */
@@ -319,15 +340,6 @@ body {
   transition: 200ms;
   transform: translate(-15%, -50%);
   background-color: var(--clr-accent-dark);
-}
-
-.topbar-icon { 
-  color: var(--clr-icons-light);
-  height: 22px;
-  width: 22px;
-}
-.page-wrapper.dark .topbar-icon {
-  color: var(--clr-icons-dark);
 }
 
 /* MOBILE */

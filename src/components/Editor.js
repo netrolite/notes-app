@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Editor(props) { 
     // index of currently selected note
