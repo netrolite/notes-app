@@ -7,11 +7,6 @@ export default function Editor(props) {
         props.notes.find(item => item.id === props.currNoteID)
     )
 
-    // automatically focus on editor on page load and when currNoteID changes
-    useEffect(() => {
-        document.querySelector(".editor").focus();
-    }, [props.currNoteID])
-
     // runs when user updates text inside "editor"
     function updateNote() {
         // if there are no notes
