@@ -40,7 +40,7 @@
 
 body {
   font-family: Inter, Arial, Helvetica, sans-serif;
-  overflow: hidden;
+  min-height: 100vh;
   background-color: var(--clr-bg-light);
 }
 
