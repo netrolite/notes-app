@@ -103,7 +103,7 @@ body {
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: min-content;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
 }
