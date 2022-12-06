@@ -99,7 +99,7 @@ body {
 .page-wrapper.dark .no-notes {
   color: var(--clr-no-notes-dark);
 }
-
+ 
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
