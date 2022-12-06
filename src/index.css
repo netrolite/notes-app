@@ -103,6 +103,8 @@ body {
 .sidebar-notes-list {
   display: flex;
   flex-direction: column;
+  /* 72px is the height of the topbar */
+  min-height: calc(100vh - 72px);
   height: min-content;
   padding: 30px 10px 30px 10px;
   background-color: var(--clr-bg-light);
